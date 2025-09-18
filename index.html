@@ -271,13 +271,28 @@
         .p-15 { padding:15px; }
         .block-bold { display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px; }
         .abs-top-right { position:absolute; top:5px; right:5px; background:rgba(0,0,0,.7); color:white; padding:2px 6px; border-radius:10px; font-size:8px; }
-        .block-bold { display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px; }
-        .flex-center { display:flex; align-items:center; font-size:12px; cursor:pointer; }
-        .flex-1 { flex:1; }
-        .mr-8 { margin-right:8px; }
 
         /* Contact Form Select Styles */
         .contact-select { width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; background:#fff; }
+
+        /* Submit Button Styles */
+        .submit-message-btn { background:linear-gradient(135deg,#fa709a 0%,#fee140 100%); color:#333; border:none; padding:15px 40px; border-radius:25px; font-weight:bold; font-size:16px; cursor:pointer; transition:transform 0.2s; }
+        
+        /* Form Help Text */
+        .form-help-text { font-size:11px; color:#666; margin-top:10px; }
+
+        /* Visitor Counter Screen */
+        .visitor-screen { background:#000; color:#00ff00; font-family:'Courier New', monospace; padding:8px; border:2px inset #ccc; margin-bottom:8px; }
+        .visitor-screen-number { font-size:16px; font-weight:bold; letter-spacing:2px; }
+        .visitor-screen-label { font-size:10px; }
+        .marquee-margin-top { margin-top:8px; }
+
+        /* Coffee Club Gathering */
+        .coffee-club-header { background:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%); color:#333; padding:8px; border-radius:4px; margin-bottom:8px; font-weight:bold; }
+        .coffee-club-description { font-size:10px; margin-bottom:8px; }
+        .coffee-club-details { background:#f0fff0; border:1px solid #90ee90; padding:6px; margin-bottom:8px; font-size:9px; }
+        .coffee-club-button { width:100%; padding:6px; font-size:10px; background:#43e97b; color:#333; border:1px solid #2ed573; cursor:pointer; border-radius:4px; }
+        .coffee-club-footer { font-size:8px; color:#666; text-align:center; margin-top:4px; }
     </style>
 </head>
 <body>
@@ -362,12 +377,12 @@
                     <div class="module-content visitor-counter-content">
                 <div class="module">
                     <div class="module-header">Visitor Counter</div>
-                    <div class="module-content" class="text-center">
-                        <div style="background:#000; color:#00ff00; font-family:'Courier New', monospace; padding:8px; border:2px inset #ccc; margin-bottom:8px;">
-                            <div style="font-size:10px;">You are visitor number:</div>
-                            <div style="font-size:16px; font-weight:bold; letter-spacing:2px;" id="visitorCount">001337</div>
+                        <div class="visitor-screen">
+                            <div class="visitor-screen-label">You are visitor number:</div>
+                            <div class="visitor-screen-number" id="visitorCount">001337</div>
                         </div>
-                        <div class="fs-9-gray">Since: January 1, 2005</div>
+                        </>
+                        <div class="marquee marquee-margin-top"><div class="marquee-text">*** WELCOME TO THE AGENCY *** PROFESSIONAL DESIGN SERVICES *** CALL NOW! ***</div></div>
                         <div class="marquee" style="margin-top:8px;"><div class="marquee-text">*** WELCOME TO THE AGENCY *** PROFESSIONAL DESIGN SERVICES *** CALL NOW! ***</div></div>
                     </div>
                 </div>
@@ -407,14 +422,14 @@
                             </div>
                         </div>
                         <button onclick="signupMystery()" style="width:100%; padding:6px; font-size:10px; background:#fa709a; color:white; border:1px solid #e85d75; cursor:pointer; border-radius:4px;">Express Interest!</button>
-                        <div style="font-size:8px; color:#666; text-align:center; margin-top:4px;">Limited to 20 people • Business casual attire • Date TBD</div>
-                    </div>
-                </div>
-                <div class="module">
-                    <div class="module-header">☕ Coffee Club Co-work</div>
-                    <div class="module-content">
-                        <div style="text-align:center; margin-bottom:10px;">
-                            <div style="background:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%); color:#333; padding:8px; border-radius:4px; margin-bottom:8px; font-weight:bold;">☕ GATHERING INTEREST ☕</div>
+                            <div class="coffee-club-header">☕ GATHERING INTEREST ☕</div>
+                            <p class="coffee-club-description">Bring your laptop and join fellow entrepreneurs for focused work time + casual networking!</p>
+                            <div class="coffee-club-details">
+                                <strong>🎯 Vibe:</strong> Productive work + friendly chats<br/><strong>💰 Cost:</strong> Just buy your own coffee!<br/><strong>✨ Exclusive:</strong> Limited to 20 spots per session
+                            </div>
+                        </div>
+                        <button onclick="joinCoffeeClub()" class="coffee-club-button">Express Interest!</button>
+                        <div class="coffee-club-footer">Limited to 20 spots • Bring headphones for focus time • Schedule TBD</div>
                             <p style="font-size:10px; margin-bottom:8px;">Bring your laptop and join fellow entrepreneurs for focused work time + casual networking!</p>
                             <div style="background:#f0fff0; border:1px solid #90ee90; padding:6px; margin-bottom:8px; font-size:9px;">
                                 <strong>🎯 Vibe:</strong> Productive work + friendly chats<br/><strong>💰 Cost:</strong> Just buy your own coffee!<br/><strong>✨ Exclusive:</strong> Limited to 20 spots per session
@@ -1473,10 +1488,10 @@
                                 <p style="font-size:12px; color:#666; margin-bottom:10px;">Upload any relevant files, logos, or reference materials (max 10MB total)</p>
                                 <input type="file" id="fileUploadStyled" name="files" multiple accept="image/*,.pdf,.doc,.docx,.zip" style="width:100%; padding:10px; border:2px dashed #eee; border-radius:8px; background:#fafafa; cursor:pointer;">
                             </div>
-
-                            <!-- Submit Button -->
-                            <div style="text-align:center; margin-top:30px;">
-                                <button type="submit" style="background:linear-gradient(135deg,#fa709a 0%,#fee140 100%); color:#333; border:none; padding:15px 40px; border-radius:25px; font-weight:bold; font-size:16px; cursor:pointer; transition:transform 0.2s;">
+                                <button type="submit" class="submit-message-btn">
+                                    Send Message ✨
+                                </button>
+                                <p class="form-help-text">We'll get back to you within 24 hours!</p>
                                     Send Message ✨
                                 </button>
                                 <p style="font-size:11px; color:#666; margin-top:10px;">We'll get back to you within 24 hours!</p>
