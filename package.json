@@ -1,0 +1,14 @@
+{
+  "name": "the-agency-coming-soon",
+  "version": "1.0.0",
+  "description": "The Agency Coming Soon Website - MySpace Style",
+  "main": "index.html",
+  "scripts": {
+    "build": "mkdir -p dist && cp *.html dist/ && cp -r css js images assets audio dist/ 2>/dev/null || true",
+    "dev": "python3 -m http.server 8000",
+    "clean": "rm -rf dist"
+  },
+  "keywords": ["agency", "marketing", "website", "myspace"],
+  "author": "The Agency",
+  "license": "MIT"
+}
