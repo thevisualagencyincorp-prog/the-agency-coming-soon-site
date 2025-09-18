@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- eslint-disable css-inline-styles -->
+<!-- Inline styles are intentional for MySpace aesthetic -->
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -97,6 +99,17 @@
         /* File Upload */
         .file-upload-input { width:100%; padding:10px; border:2px dashed #eee; border-radius:8px; background:#fafafa; cursor:pointer; }
 
+        /* Utility Classes */
+        .mb-15 { margin-bottom: 15px; }
+        .mr-8 { margin-right: 8px; }
+        .flex-1 { flex: 1; }
+        .p-15 { padding: 15px; }
+        .fs-10-gray { font-size: 10px; color: #666; }
+        .fs-9-gray { font-size: 9px; color: #666; }
+        .text-center { text-align: center; }
+        .display-none { display: none; }
+        .contact-select { width: 100%; padding: 10px; border: 2px solid #eee; border-radius: 8px; font-size: 14px; background: #fff; }
+
         /* Result Container */
         .result-container { display:none; background:#fff; border:1px solid #ccc; padding:15px; margin-top:15px; }
         .confirmation-message { background:#e6ffe6; border:1px solid #66cc66; padding:10px; margin-bottom:15px; color:#006600; font-weight:bold; text-align:center; }
@@ -160,6 +173,9 @@
         /* Guestbook */
         .guestbook-entry{margin-bottom:8px; padding-bottom:6px; border-bottom:1px dotted #ccc;}
         .guestbook-entry:last-child{border-bottom:none;}
+
+        /* Visitor Counter */
+        .visitor-counter-content{text-align:center;}
 
         /* Popup */
         .popup-overlay{position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,.5); z-index:2000; display:flex; justify-content:center; align-items:center;}
@@ -233,6 +249,35 @@
             .interactive-services-grid{grid-template-columns:1fr;}
             .ig-grid{grid-template-columns:repeat(2,1fr);}
         }
+
+        /* Common Inline Style Classes */
+        .fs-9-gray { font-size:9px; color:#666; }
+        .fs-9 { font-size:9px; }
+        .fs-10-gray { font-size:10px; color:#666; }
+        .fs-12 { font-size:12px; }
+        .fs-12-blue { font-size:12px; color:#6699cc; font-weight:bold; margin-bottom:5px; }
+        .fs-8-gray { font-size:8px; color:#666; }
+        .mb-15 { margin-bottom:15px; }
+        .mb-10 { font-size:9px; color:#666; margin-bottom:10px; }
+        .mb-10-line { font-size:10px; margin-bottom:10px; line-height:1.4; }
+        .mb-10-italic { font-size:10px; line-height:1.4; margin-bottom:10px; font-style:italic; }
+        .text-center { text-align:center; }
+        .flex-center { display:flex; align-items:center; font-size:12px; cursor:pointer; }
+        .flex-space-between { display:flex; justify-content:space-between; align-items:center; }
+        .flex-gap-15 { display:flex; gap:15px; align-items:flex-start; }
+        .flex-1 { flex:1; }
+        .mr-8 { margin-right:8px; }
+        .display-none { display:none; }
+        .p-15 { padding:15px; }
+        .block-bold { display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px; }
+        .abs-top-right { position:absolute; top:5px; right:5px; background:rgba(0,0,0,.7); color:white; padding:2px 6px; border-radius:10px; font-size:8px; }
+        .block-bold { display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px; }
+        .flex-center { display:flex; align-items:center; font-size:12px; cursor:pointer; }
+        .flex-1 { flex:1; }
+        .mr-8 { margin-right:8px; }
+
+        /* Contact Form Select Styles */
+        .contact-select { width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; background:#fff; }
     </style>
 </head>
 <body>
@@ -312,26 +357,26 @@
                         <p><strong>Ethnicity:</strong> Diverse team</p>
                         <p><strong>Religion:</strong> Design thinking</p>
                         <p><strong>Zodiac Sign:</strong> Cancer/Virgo</p>
-                        <p><strong>Experience/Education:</strong> 16+ years / Masters Degree (in progress)</p>
-                    </div>
-                </div>
                 <div class="module">
                     <div class="module-header">Visitor Counter</div>
-                    <div class="module-content" style="text-align:center;">
+                    <div class="module-content visitor-counter-content">
+                <div class="module">
+                    <div class="module-header">Visitor Counter</div>
+                    <div class="module-content" class="text-center">
                         <div style="background:#000; color:#00ff00; font-family:'Courier New', monospace; padding:8px; border:2px inset #ccc; margin-bottom:8px;">
                             <div style="font-size:10px;">You are visitor number:</div>
                             <div style="font-size:16px; font-weight:bold; letter-spacing:2px;" id="visitorCount">001337</div>
                         </div>
-                        <div style="font-size:9px; color:#666;">Since: January 1, 2005</div>
+                        <div class="fs-9-gray">Since: January 1, 2005</div>
                         <div class="marquee" style="margin-top:8px;"><div class="marquee-text">*** WELCOME TO THE AGENCY *** PROFESSIONAL DESIGN SERVICES *** CALL NOW! ***</div></div>
                     </div>
                 </div>
                 <div class="module">
                     <div class="module-header">The Agency's Mood</div>
-                    <div class="module-content" style="text-align:center;">
+                    <div class="module-content" class="text-center">
                         <div class="mood-ring" id="moodRing" onclick="changeMood()"><div class="mood-center" id="moodCenter">😊</div></div>
                         <div style="margin-top:8px; font-size:10px;">
-                            <strong id="moodText">Creative & Inspired</strong><br/><span style="font-size:9px; color:#666;">Click to change mood!</span>
+                            <strong id="moodText">Creative & Inspired</strong><br/><span class="fs-9-gray">Click to change mood!</span>
                         </div>
                     </div>
                 </div>
@@ -340,7 +385,7 @@
                     <div class="module-content">
                         <div style="text-align:center; margin-bottom:10px;">
                             <div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:white; padding:8px; border-radius:4px; margin-bottom:8px;">
-                                <strong>🎯 The Agency Insider</strong><br/><span style="font-size:9px;">Marketing secrets that actually work!</span>
+                                <strong>🎯 The Agency Insider</strong><br/><span class="fs-9">Marketing secrets that actually work!</span>
                             </div>
                             <p style="font-size:10px; margin-bottom:8px;">Get monthly tips, trends, and behind-the-scenes insights from 16 years in marketing!</p>
                         </div>
@@ -383,9 +428,9 @@
                     <div class="module-header">Sign My Guestbook!</div>
                     <div class="module-content">
                         <div style="background:#f9f9f9; border:1px solid #ccc; padding:8px; margin-bottom:8px; max-height:120px; overflow-y:auto;" id="guestbookEntries">
-                            <div class="guestbook-entry"><strong>CreativeGuru2005:</strong> Love your work! Your designs are so fresh! 🎨<br/><span style="font-size:9px; color:#666;">Posted: 2 hours ago</span></div>
-                            <div class="guestbook-entry"><strong>WebMaster99:</strong> That portfolio is fire! Hit me up for collabs! 💻<br/><span style="font-size:9px; color:#666;">Posted: 5 hours ago</span></div>
-                            <div class="guestbook-entry"><strong>DesignQueen:</strong> OMG your branding work is amazing!!! ⭐⭐⭐⭐⭐<br/><span style="font-size:9px; color:#666;">Posted: 1 day ago</span></div>
+                            <div class="guestbook-entry"><strong>CreativeGuru2005:</strong> Love your work! Your designs are so fresh! 🎨<br/><span class="fs-9-gray">Posted: 2 hours ago</span></div>
+                            <div class="guestbook-entry"><strong>WebMaster99:</strong> That portfolio is fire! Hit me up for collabs! 💻<br/><span class="fs-9-gray">Posted: 5 hours ago</span></div>
+                            <div class="guestbook-entry"><strong>DesignQueen:</strong> OMG your branding work is amazing!!! ⭐⭐⭐⭐⭐<br/><span class="fs-9-gray">Posted: 1 day ago</span></div>
                         </div>
                         <div style="display:flex; gap:4px;">
                             <input type="text" placeholder="Leave a message..." style="flex:1; padding:4px; font-size:10px; border:1px solid #ccc;" id="guestbookInput"/>
@@ -418,7 +463,7 @@
                     <div class="module">
                         <div class="module-header">Welcome to The Agency!</div>
                         <div class="module-content">
-                            <div class="under-construction"><strong>🚧 UNDER CONSTRUCTION 🚧</strong><br/><span style="font-size:9px;">This page is being updated with fresh content!</span></div>
+                            <div class="under-construction"><strong>🚧 UNDER CONSTRUCTION 🚧</strong><br/><span class="fs-9">This page is being updated with fresh content!</span></div>
                             <p>Hey there! Welcome to our creative corner of Our-Space. We're The Agency - your go-to marketing agency for small business branding, web design, and digital marketing that actually works!</p>
                             <p><strong>What we're up to:</strong></p>
                             <ul>
@@ -518,9 +563,9 @@
                             <div style="text-align:center; margin-bottom:15px;">
                                 <div style="background: linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); color:white; padding:8px; border-radius:8px; margin-bottom:8px;">
                                     <strong>📱 Live Instagram Feed</strong><br/>
-                                    <span style="font-size:9px;">Fresh work, behind-the-scenes & client wins!</span>
+                                    <span class="fs-9">Fresh work, behind-the-scenes & client wins!</span>
                                 </div>
-                                <p style="font-size:10px; color:#666;">Click any image to see the full post on Instagram</p>
+                                <p class="fs-10-gray">Click any image to see the full post on Instagram</p>
                             </div>
 
                             <!-- REAL Instagram Feed -->
@@ -534,7 +579,7 @@
 
                                 <!-- Grid populated by JS -->
                                 <div class="ig-grid" id="igGrid"></div>
-                                <div class="ig-error" id="igError" style="display:none;"></div>
+                                <div class="ig-error" id="igError" class="display-none"></div>
 
                                 <div style="margin-top:15px; text-align:center;">
                                     <button onclick="followInstagram()" style="background: linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); color:white; border:none; padding:8px 16px; border-radius:20px; font-size:10px; cursor:pointer; font-weight:bold;">
@@ -544,7 +589,7 @@
                             </div>
 
                             <!-- Fallback Gallery (unchanged) -->
-                            <div class="photo-gallery" id="instagramFeed" style="display:none;">
+                            <div class="photo-gallery" id="instagramFeed" class="display-none">
                                 <div class="gallery-item" onclick="openInstagramPost('brand-identity-project')">
                                     <div class="gallery-image" style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:white; font-weight:bold; font-size:10px; text-align:center;">
                                         Brand Identity<br/>Project ✨
@@ -593,7 +638,7 @@
                                 <button onclick="toggleInstagramView()" style="background:#6699cc; color:white; border:none; padding:6px 12px; border-radius:4px; font-size:10px; cursor:pointer; margin-right:8px;">
                                     📱 Toggle Gallery View
                                 </button>
-                                <span style="font-size:9px; color:#666;">Switch between live feed and gallery view</span>
+                                <span class="fs-9-gray">Switch between live feed and gallery view</span>
                             </div>
 
                             <div style="text-align:center; margin-top:15px;">
@@ -609,26 +654,26 @@
                         <div class="module-header">Sponsored Links</div>
                         <div class="module-content">
                             <div style="border:2px solid #ff0000; background:#ffff00; padding:8px; margin-bottom:10px; text-align:center; animation:blink 1s infinite; cursor:pointer;" onclick="showPopup('napster')">
-                                <strong>🎵 NAPSTER 2.0 🎵</strong><br/><span style="font-size:9px;">Download UNLIMITED MP3s!</span><br/><span style="color:#ff0000; font-weight:bold;">CLICK HERE NOW!</span>
+                                <strong>🎵 NAPSTER 2.0 🎵</strong><br/><span class="fs-9">Download UNLIMITED MP3s!</span><br/><span style="color:#ff0000; font-weight:bold;">CLICK HERE NOW!</span>
                             </div>
                             <div style="border:1px solid #0000ff; background:#e6f3ff; padding:6px; margin-bottom:10px; text-align:center; cursor:pointer;" onclick="showPopup('cd')">
-                                <strong>💿 BURN CDs AT HOME! 💿</strong><br/><span style="font-size:9px;">Make your own mix CDs!</span><br/><span style="color:#0000ff;">Get CD-R Blanks Cheap!</span>
+                                <strong>💿 BURN CDs AT HOME! 💿</strong><br/><span class="fs-9">Make your own mix CDs!</span><br/><span style="color:#0000ff;">Get CD-R Blanks Cheap!</span>
                             </div>
                             <div style="border:2px dashed #ff6600; background:#fff3e6; padding:6px; margin-bottom:10px; text-align:center; cursor:pointer;" onclick="playSnake()">
-                                <strong>📱 GET A NOKIA 3310! 📱</strong><br/><span style="font-size:9px;">Snake game included!</span><br/><span style="color:#ff6600;">Indestructible phone!</span>
+                                <strong>📱 GET A NOKIA 3310! 📱</strong><br/><span class="fs-9">Snake game included!</span><br/><span style="color:#ff6600;">Indestructible phone!</span>
                             </div>
                             <div style="border:1px solid #800080; background:#f9e6ff; padding:6px; margin-bottom:10px; text-align:center; cursor:pointer;" onclick="showPopup('dialup')">
-                                <strong>💻 DIAL-UP INTERNET 💻</strong><br/><span style="font-size:9px;">56k speeds!</span><br/><span style="color:#800080;">Free 100 hours trial!</span>
+                                <strong>💻 DIAL-UP INTERNET 💻</strong><br/><span class="fs-9">56k speeds!</span><br/><span style="color:#800080;">Free 100 hours trial!</span>
                             </div>
                             <div style="border:2px solid #008000; background:#e6ffe6; padding:6px; text-align:center; animation:pulse 2s infinite; cursor:pointer;" onclick="showPopup('gameboy')">
-                                <strong>🎮 GAME BOY ADVANCE 🎮</strong><br/><span style="font-size:9px;">Pokémon Ruby & Sapphire!</span><br/><span style="color:#008000;">Gotta catch 'em all!</span>
+                                <strong>🎮 GAME BOY ADVANCE 🎮</strong><br/><span class="fs-9">Pokémon Ruby & Sapphire!</span><br/><span style="color:#008000;">Gotta catch 'em all!</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Portfolio -->
-                <div class="tab-content" id="portfolio-content" style="display:none;">
+                <div class="tab-content display-none" id="portfolio-content">
                     <!-- (unchanged content) -->
                     <div class="module">
                         <div class="module-header">Our Work</div>
@@ -648,38 +693,38 @@
                             <div style="background:#f9f9f9; border:1px solid #ddd; padding:10px; margin-bottom:10px; border-radius:4px;">
                                 <h4 style="color:#6699cc; margin-bottom:5px; font-size:11px;">🎨 Brand Identity Transformation</h4>
                                 <p style="font-size:10px; margin-bottom:5px;">Complete visual rebrand for established business including logo redesign, color palette, typography system, and brand guidelines.</p>
-                                <div style="font-size:9px; color:#666;"><strong>Results:</strong> 60% increase in brand recognition, 45% boost in customer engagement</div>
+                                <div class="fs-9-gray"><strong>Results:</strong> 60% increase in brand recognition, 45% boost in customer engagement</div>
                             </div>
                             <div style="background:#f0f8ff; border:1px solid #b3d9ff; padding:10px; margin-bottom:10px; border-radius:4px;">
                                 <h4 style="color:#0066cc; margin-bottom:5px; font-size:11px;">💻 E-commerce Website Redesign</h4>
                                 <p style="font-size:10px; margin-bottom:5px;">Full website overhaul with modern design, improved user experience, mobile optimization, and conversion-focused layout.</p>
-                                <div style="font-size:9px; color:#666;"><strong>Results:</strong> 120% increase in online sales, 35% improvement in conversion rate</div>
+                                <div class="fs-9-gray"><strong>Results:</strong> 120% increase in online sales, 35% improvement in conversion rate</div>
                             </div>
                             <div style="background:#fff5f5; border:1px solid #ffb3b3; padding:10px; margin-bottom:10px; border-radius:4px;">
                                 <h4 style="color:#cc3333; margin-bottom:5px; font-size:11px;">📈 Digital Marketing Campaign</h4>
                                 <p style="font-size:10px; margin-bottom:5px;">Multi-channel marketing strategy including social media, email marketing, content creation, and paid advertising campaigns.</p>
-                                <div style="font-size:9px; color:#666;"><strong>Results:</strong> 200% growth in social following, 85% increase in qualified leads</div>
+                                <div class="fs-9-gray"><strong>Results:</strong> 200% growth in social following, 85% increase in qualified leads</div>
                             </div>
                             <div style="background:#f5fff5; border:1px solid #b3ffb3; padding:10px; margin-bottom:10px; border-radius:4px;">
                                 <h4 style="color:#009900; margin-bottom:5px; font-size:11px;">📸 Product Photography & Styling</h4>
                                 <p style="font-size:10px; margin-bottom:5px;">Professional product photography session with styling, lighting, and post-production for e-commerce and marketing materials.</p>
-                                <div style="font-size:9px; color:#666;"><strong>Results:</strong> 75% increase in product page engagement, 40% boost in online sales</div>
+                                <div class="fs-9-gray"><strong>Results:</strong> 75% increase in product page engagement, 40% boost in online sales</div>
                             </div>
                             <div style="background:#fffaf0; border:1px solid #ffd700; padding:10px; margin-bottom:10px; border-radius:4px;">
                                 <h4 style="color:#cc9900; margin-bottom:5px; font-size:11px;">🏪 Local SEO Optimization</h4>
                                 <p style="font-size:10px; margin-bottom:5px;">Complete local search optimization including Google My Business setup, local citations, review management, and location-based content.</p>
-                                <div style="font-size:9px; color:#666;"><strong>Results:</strong> #1 ranking for key local searches, 150% increase in foot traffic</div>
+                                <div class="fs-9-gray"><strong>Results:</strong> #1 ranking for key local searches, 150% increase in foot traffic</div>
                             </div>
                             <div style="text-align:center; margin-top:15px; padding:10px; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:white; border-radius:4px;">
                                 <strong style="font-size:11px;">📖 View Full Case Studies</strong><br/>
-                                <span style="font-size:9px;">Visit the-visual-archive.com for detailed project breakdowns, before/after comparisons, and client testimonials</span>
+                                <span class="fs-9">Visit the-visual-archive.com for detailed project breakdowns, before/after comparisons, and client testimonials</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Services -->
-                <div class="tab-content" id="services-content" style="display:none;">
+                <div class="tab-content display-none" id="services-content">
                     <div class="module">
                         <div class="module-header">Our Services</div>
                         <div class="module-content">
@@ -949,7 +994,7 @@
                 </div>
 
                 <!-- About -->
-                <div class="tab-content" id="about-content" style="display:none;">
+                <div class="tab-content display-none" id="about-content">
                     <div class="module">
                         <div class="module-header">About The Agency</div>
                         <div class="module-content">
@@ -978,25 +1023,25 @@
                             </div>
 
                             <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; margin:15px 0;">
-                                <div style="text-align:center;">
+                                <div class="text-center">
                                     <div style="font-size:2rem; margin-bottom:5px;">🏆</div>
                                     <div style="font-weight:bold; color:#6699cc;">Award-Winning</div>
-                                    <div style="font-size:10px; color:#666;">Recognized for design excellence</div>
+                                    <div class="fs-10-gray">Recognized for design excellence</div>
                                 </div>
-                                <div style="text-align:center;">
+                                <div class="text-center">
                                     <div style="font-size:2rem; margin-bottom:5px;">🚀</div>
                                     <div style="font-weight:bold; color:#6699cc;">200+ Projects</div>
-                                    <div style="font-size:10px; color:#666;">Successful launches & rebrands</div>
+                                    <div class="fs-10-gray">Successful launches & rebrands</div>
                                 </div>
-                                <div style="text-align:center;">
+                                <div class="text-center">
                                     <div style="font-size:2rem; margin-bottom:5px;">⭐</div>
                                     <div style="font-weight:bold; color:#6699cc;">4.9/5 Rating</div>
-                                    <div style="font-size:10px; color:#666;">Happy clients across the country</div>
+                                    <div class="fs-10-gray">Happy clients across the country</div>
                                 </div>
-                                <div style="text-align:center;">
+                                <div class="text-center">
                                     <div style="font-size:2rem; margin-bottom:5px;">🤝</div>
                                     <div style="font-weight:bold; color:#6699cc;">16+ Years</div>
-                                    <div style="font-size:10px; color:#666;">Building businesses & brands</div>
+                                    <div class="fs-10-gray">Building businesses & brands</div>
                                 </div>
                             </div>
 
@@ -1026,7 +1071,7 @@
                 </div>
 
                 <!-- Blog -->
-                <div class="tab-content" id="blog-content" style="display:none;">
+                <div class="tab-content display-none" id="blog-content">
                     <div class="module">
                         <div class="module-header">📝 The Agency Blog</div>
                         <div class="module-content">
@@ -1055,55 +1100,55 @@
                                 <!-- Blog Posts Grid -->
                                 <div style="background:#fff; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
                                     <div style="background:linear-gradient(135deg,#fa709a 0%,#fee140 100%); height:120px; display:flex; align-items:center; justify-content:center; color:#333; font-size:24px;">🎨</div>
-                                    <div style="padding:15px;">
+                                    <div class="p-15">
                                         <h4 style="color:#6699cc; margin-bottom:8px; font-size:12px;">Color Psychology in Branding: What Your Colors Say About Your Business</h4>
                                         <p style="font-size:10px; margin-bottom:10px; line-height:1.4;">Discover how different colors affect customer perception and learn how to choose the perfect palette for your brand.</p>
-                                        <div style="font-size:9px; color:#666;">📅 September 10, 2025 • ⏱️ 5 min read</div>
+                                        <div class="fs-9-gray">📅 September 10, 2025 • ⏱️ 5 min read</div>
                                     </div>
                                 </div>
 
                                 <div style="background:#fff; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
                                     <div style="background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%); height:120px; display:flex; align-items:center; justify-content:center; color:#333; font-size:24px;">📱</div>
-                                    <div style="padding:15px;">
+                                    <div class="p-15">
                                         <h4 style="color:#6699cc; margin-bottom:8px; font-size:12px;">Social Media Strategy for Local Businesses in 2025</h4>
                                         <p style="font-size:10px; margin-bottom:10px; line-height:1.4;">The social media landscape is constantly changing. Here's what local businesses need to know to stay competitive.</p>
-                                        <div style="font-size:9px; color:#666;">📅 September 5, 2025 • ⏱️ 7 min read</div>
+                                        <div class="fs-9-gray">📅 September 5, 2025 • ⏱️ 7 min read</div>
                                     </div>
                                 </div>
 
                                 <div style="background:#fff; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
                                     <div style="background:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%); height:120px; display:flex; align-items:center; justify-content:center; color:#333; font-size:24px;">💰</div>
-                                    <div style="padding:15px;">
+                                    <div class="p-15">
                                         <h4 style="color:#6699cc; margin-bottom:8px; font-size:12px;">How Much Should You Spend on Branding? A Realistic Guide</h4>
                                         <p style="font-size:10px; margin-bottom:10px; line-height:1.4;">Stop guessing and start planning. Learn how to budget for professional branding that delivers real ROI.</p>
-                                        <div style="font-size:9px; color:#666;">📅 August 28, 2025 • ⏱️ 6 min read</div>
+                                        <div class="fs-9-gray">📅 August 28, 2025 • ⏱️ 6 min read</div>
                                     </div>
                                 </div>
 
                                 <div style="background:#fff; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
                                     <div style="background:linear-gradient(135deg,#a8edea 0%,#fed6e3 100%); height:120px; display:flex; align-items:center; justify-content:center; color:#333; font-size:24px;">📸</div>
-                                    <div style="padding:15px;">
+                                    <div class="p-15">
                                         <h4 style="color:#6699cc; margin-bottom:8px; font-size:12px;">Product Photography Tips That Sell More Products</h4>
                                         <p style="font-size:10px; margin-bottom:10px; line-height:1.4;">Great product photos can make or break your online sales. Learn the secrets of professional product photography.</p>
-                                        <div style="font-size:9px; color:#666;">📅 August 20, 2025 • ⏱️ 8 min read</div>
+                                        <div class="fs-9-gray">📅 August 20, 2025 • ⏱️ 8 min read</div>
                                     </div>
                                 </div>
 
                                 <div style="background:#fff; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
                                     <div style="background:linear-gradient(135deg,#d299c2 0%,#fef9d7 100%); height:120px; display:flex; align-items:center; justify-content:center; color:#333; font-size:24px;">🚀</div>
-                                    <div style="padding:15px;">
+                                    <div class="p-15">
                                         <h4 style="color:#6699cc; margin-bottom:8px; font-size:12px;">From Idea to Launch: A 30-Day Business Launch Plan</h4>
                                         <p style="font-size:10px; margin-bottom:10px; line-height:1.4;">Ready to launch your business? Follow this step-by-step plan to go from idea to grand opening in just 30 days.</p>
-                                        <div style="font-size:9px; color:#666;">📅 August 15, 2025 • ⏱️ 10 min read</div>
+                                        <div class="fs-9-gray">📅 August 15, 2025 • ⏱️ 10 min read</div>
                                     </div>
                                 </div>
 
                                 <div style="background:#fff; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
                                     <div style="background:linear-gradient(135deg,#89f7fe 0%,#66a6ff 100%); height:120px; display:flex; align-items:center; justify-content:center; color:#333; font-size:24px;">📈</div>
-                                    <div style="padding:15px;">
+                                    <div class="p-15">
                                         <h4 style="color:#6699cc; margin-bottom:8px; font-size:12px;">SEO for Small Businesses: What Actually Works in 2025</h4>
                                         <p style="font-size:10px; margin-bottom:10px; line-height:1.4;">Cut through the SEO noise and focus on the strategies that actually drive traffic and customers to local businesses.</p>
-                                        <div style="font-size:9px; color:#666;">📅 August 10, 2025 • ⏱️ 9 min read</div>
+                                        <div class="fs-9-gray">📅 August 10, 2025 • ⏱️ 9 min read</div>
                                     </div>
                                 </div>
                             </div>
@@ -1121,7 +1166,7 @@
                 </div>
 
                 <!-- Testimonials -->
-                <div class="tab-content" id="testimonials-content" style="display:none;">
+                <div class="tab-content display-none" id="testimonials-content">
                     <div class="module">
                         <div class="module-header">⭐ Client Reviews & Testimonials</div>
                         <div class="module-content">
@@ -1155,7 +1200,7 @@
                                 <div style="background:#f9f9f9; border:1px solid #ddd; padding:20px; border-radius:8px;">
                                     <div style="display:flex; gap:15px; align-items:flex-start;">
                                         <div style="width:50px; height:50px; background:linear-gradient(45deg,#fa709a,#fee140); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#333; font-weight:bold; flex-shrink:0;">MJ</div>
-                                        <div style="flex:1;">
+                                        <div class="flex-1">
                                             <div style="font-size:12px; color:#6699cc; font-weight:bold; margin-bottom:5px;">Maria Rodriguez</div>
                                             <div style="font-size:9px; color:#666; margin-bottom:10px;">Owner, Maria's Mexican Restaurant</div>
                                             <p style="font-size:10px; line-height:1.4; margin-bottom:10px; font-style:italic;">
@@ -1163,7 +1208,7 @@
                                             </p>
                                             <div style="display:flex; justify-content:space-between; align-items:center;">
                                                 <span style="font-size:12px;">⭐⭐⭐⭐⭐</span>
-                                                <span style="font-size:8px; color:#666;">Website Design</span>
+                                                <span class="fs-8-gray">Website Design</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1172,7 +1217,7 @@
                                 <div style="background:#f9f9f9; border:1px solid #ddd; padding:20px; border-radius:8px;">
                                     <div style="display:flex; gap:15px; align-items:flex-start;">
                                         <div style="width:50px; height:50px; background:linear-gradient(45deg,#4facfe,#00f2fe); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#333; font-weight:bold; flex-shrink:0;">DC</div>
-                                        <div style="flex:1;">
+                                        <div class="flex-1">
                                             <div style="font-size:12px; color:#6699cc; font-weight:bold; margin-bottom:5px;">David Chen</div>
                                             <div style="font-size:9px; color:#666; margin-bottom:10px;">Founder, Chen Law Firm</div>
                                             <p style="font-size:10px; line-height:1.4; margin-bottom:10px; font-style:italic;">
@@ -1180,7 +1225,7 @@
                                             </p>
                                             <div style="display:flex; justify-content:space-between; align-items:center;">
                                                 <span style="font-size:12px;">⭐⭐⭐⭐⭐</span>
-                                                <span style="font-size:8px; color:#666;">Brand Identity</span>
+                                                <span class="fs-8-gray">Brand Identity</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1189,7 +1234,7 @@
                                 <div style="background:#f9f9f9; border:1px solid #ddd; padding:20px; border-radius:8px;">
                                     <div style="display:flex; gap:15px; align-items:flex-start;">
                                         <div style="width:50px; height:50px; background:linear-gradient(45deg,#43e97b,#38f9d7); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#333; font-weight:bold; flex-shrink:0;">LB</div>
-                                        <div style="flex:1;">
+                                        <div class="flex-1">
                                             <div style="font-size:12px; color:#6699cc; font-weight:bold; margin-bottom:5px;">Lisa Brown</div>
                                             <div style="font-size:9px; color:#666; margin-bottom:10px;">Owner, Brown Accounting Services</div>
                                             <p style="font-size:10px; line-height:1.4; margin-bottom:10px; font-style:italic;">
@@ -1197,7 +1242,7 @@
                                             </p>
                                             <div style="display:flex; justify-content:space-between; align-items:center;">
                                                 <span style="font-size:12px;">⭐⭐⭐⭐⭐</span>
-                                                <span style="font-size:8px; color:#666;">Digital Marketing</span>
+                                                <span class="fs-8-gray">Digital Marketing</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1206,7 +1251,7 @@
                                 <div style="background:#f9f9f9; border:1px solid #ddd; padding:20px; border-radius:8px;">
                                     <div style="display:flex; gap:15px; align-items:flex-start;">
                                         <div style="width:50px; height:50px; background:linear-gradient(45deg,#a8edea,#fed6e3); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#333; font-weight:bold; flex-shrink:0;">TW</div>
-                                        <div style="flex:1;">
+                                        <div class="flex-1">
                                             <div style="font-size:12px; color:#6699cc; font-weight:bold; margin-bottom:5px;">Tom Wilson</div>
                                             <div style="font-size:9px; color:#666; margin-bottom:10px;">Owner, Wilson's Auto Repair</div>
                                             <p style="font-size:10px; line-height:1.4; margin-bottom:10px; font-style:italic;">
@@ -1214,7 +1259,7 @@
                                             </p>
                                             <div style="display:flex; justify-content:space-between; align-items:center;">
                                                 <span style="font-size:12px;">⭐⭐⭐⭐⭐</span>
-                                                <span style="font-size:8px; color:#666;">Photography</span>
+                                                <span class="fs-8-gray">Photography</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1223,7 +1268,7 @@
                                 <div style="background:#f9f9f9; border:1px solid #ddd; padding:20px; border-radius:8px;">
                                     <div style="display:flex; gap:15px; align-items:flex-start;">
                                         <div style="width:50px; height:50px; background:linear-gradient(45deg,#d299c2,#fef9d7); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#333; font-weight:bold; flex-shrink:0;">AG</div>
-                                        <div style="flex:1;">
+                                        <div class="flex-1">
                                             <div style="font-size:12px; color:#6699cc; font-weight:bold; margin-bottom:5px;">Amanda Garcia</div>
                                             <div style="font-size:9px; color:#666; margin-bottom:10px;">Founder, Garcia Fitness Studio</div>
                                             <p style="font-size:10px; line-height:1.4; margin-bottom:10px; font-style:italic;">
@@ -1231,7 +1276,7 @@
                                             </p>
                                             <div style="display:flex; justify-content:space-between; align-items:center;">
                                                 <span style="font-size:12px;">⭐⭐⭐⭐⭐</span>
-                                                <span style="font-size:8px; color:#666;">Strategy Consulting</span>
+                                                <span class="fs-8-gray">Strategy Consulting</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1240,7 +1285,7 @@
                                 <div style="background:#f9f9f9; border:1px solid #ddd; padding:20px; border-radius:8px;">
                                     <div style="display:flex; gap:15px; align-items:flex-start;">
                                         <div style="width:50px; height:50px; background:linear-gradient(45deg,#89f7fe,#66a6ff); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#333; font-weight:bold; flex-shrink:0;">RM</div>
-                                        <div style="flex:1;">
+                                        <div class="flex-1">
                                             <div style="font-size:12px; color:#6699cc; font-weight:bold; margin-bottom:5px;">Robert Martinez</div>
                                             <div style="font-size:9px; color:#666; margin-bottom:10px;">Owner, Martinez Landscaping</div>
                                             <p style="font-size:10px; line-height:1.4; margin-bottom:10px; font-style:italic;">
@@ -1248,7 +1293,7 @@
                                             </p>
                                             <div style="display:flex; justify-content:space-between; align-items:center;">
                                                 <span style="font-size:12px;">⭐⭐⭐⭐⭐</span>
-                                                <span style="font-size:8px; color:#666;">Logo Design</span>
+                                                <span class="fs-8-gray">Logo Design</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1261,19 +1306,19 @@
                                 <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:15px; text-align:center;">
                                     <div>
                                         <div style="font-size:24px; font-weight:bold; color:#6699cc;">200+</div>
-                                        <div style="font-size:10px; color:#666;">Projects Completed</div>
+                                        <div class="fs-10-gray">Projects Completed</div>
                                     </div>
                                     <div>
                                         <div style="font-size:24px; font-weight:bold; color:#6699cc;">4.9/5</div>
-                                        <div style="font-size:10px; color:#666;">Average Rating</div>
+                                        <div class="fs-10-gray">Average Rating</div>
                                     </div>
                                     <div>
                                         <div style="font-size:24px; font-weight:bold; color:#6699cc;">95%</div>
-                                        <div style="font-size:10px; color:#666;">Client Retention</div>
+                                        <div class="fs-10-gray">Client Retention</div>
                                     </div>
                                     <div>
                                         <div style="font-size:24px; font-weight:bold; color:#6699cc;">16+</div>
-                                        <div style="font-size:10px; color:#666;">Years Experience</div>
+                                        <div class="fs-10-gray">Years Experience</div>
                                     </div>
                                 </div>
                             </div>
@@ -1288,7 +1333,7 @@
                 </div>
 
                 <!-- Contact -->
-                <div class="tab-content contact-form" id="contact-content" style="display:none;">
+                <div class="tab-content contact-form display-none" id="contact-content">
                     <div style="max-width:800px; margin:0 auto; padding:20px;">
                         <div style="text-align:center; margin-bottom:30px;">
                             <h2 style="font-size:28px; font-weight:bold; color:#333; margin-bottom:10px;">Let's Create Something Amazing Together</h2>
@@ -1323,10 +1368,7 @@
                                 </div>
                             </div>
 
-                            <!-- Project Details -->
-                            <div style="margin-bottom:25px;">
-                                <h3 style="font-size:18px; font-weight:bold; color:#333; margin-bottom:15px; border-bottom:2px solid #fee140; padding-bottom:5px;">Project Details</h3>
-                                <div style="margin-bottom:15px;">
+                                <div class="mb-15">
                                     <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Project Type *</label>
                                     <select name="projectType" required style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; background:#fff;">
                                         <option value="">Select a project type...</option>
@@ -1341,7 +1383,7 @@
                                         <option value="other">Other (please specify below)</option>
                                     </select>
                                 </div>
-                                <div style="margin-bottom:15px;">
+                                <div class="mb-15">
                                     <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Budget Range</label>
                                     <select name="budget" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; background:#fff;">
                                         <option value="">Select budget range...</option>
@@ -1353,7 +1395,7 @@
                                         <option value="over-100k">Over $100,000</option>
                                     </select>
                                 </div>
-                                <div style="margin-bottom:15px;">
+                                <div class="mb-15">
                                     <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Timeline</label>
                                     <select name="timeline" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; background:#fff;">
                                         <option value="">Select timeline...</option>
@@ -1373,28 +1415,28 @@
                                 <p style="font-size:12px; color:#666; margin-bottom:10px;">Check all that apply:</p>
                                 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px;">
                                     <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="branding" style="margin-right:8px;"> Brand Strategy & Identity
+                                        <input type="checkbox" name="services" value="branding" class="mr-8"> Brand Strategy & Identity
                                     </label>
                                     <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="web-design" style="margin-right:8px;"> Web Design & Development
+                                        <input type="checkbox" name="services" value="web-design" class="mr-8"> Web Design & Development
                                     </label>
                                     <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="marketing" style="margin-right:8px;"> Digital Marketing
+                                        <input type="checkbox" name="services" value="marketing" class="mr-8"> Digital Marketing
                                     </label>
                                     <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="social" style="margin-right:8px;"> Social Media Management
+                                        <input type="checkbox" name="services" value="social" class="mr-8"> Social Media Management
                                     </label>
                                     <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="content" style="margin-right:8px;"> Content Creation
+                                        <input type="checkbox" name="services" value="content" class="mr-8"> Content Creation
                                     </label>
                                     <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="print" style="margin-right:8px;"> Print Design
+                                        <input type="checkbox" name="services" value="print" class="mr-8"> Print Design
                                     </label>
                                     <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="photo" style="margin-right:8px;"> Photography
+                                        <input type="checkbox" name="services" value="photo" class="mr-8"> Photography
                                     </label>
                                     <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="consultation" style="margin-right:8px;"> Creative Consultation
+                                        <input type="checkbox" name="services" value="consultation" class="mr-8"> Creative Consultation
                                     </label>
                                 </div>
                             </div>
@@ -1402,15 +1444,15 @@
                             <!-- Project Description -->
                             <div style="margin-bottom:25px;">
                                 <h3 style="font-size:18px; font-weight:bold; color:#333; margin-bottom:15px; border-bottom:2px solid #667eea; padding-bottom:5px;">Tell Us About Your Project</h3>
-                                <div style="margin-bottom:15px;">
+                                <div class="mb-15">
                                     <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Project Description *</label>
                                     <textarea name="description" required rows="4" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; resize:vertical; transition:border-color 0.3s;" placeholder="Describe your project, goals, target audience, and any specific requirements..."></textarea>
                                 </div>
-                                <div style="margin-bottom:15px;">
+                                <div class="mb-15">
                                     <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">References or Inspiration</label>
                                     <textarea name="references" rows="3" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; resize:vertical; transition:border-color 0.3s;" placeholder="Share links to websites, brands, or designs you love..."></textarea>
                                 </div>
-                                <div style="margin-bottom:15px;">
+                                <div class="mb-15">
                                     <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">How did you hear about us?</label>
                                     <select name="referral" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; background:#fff;">
                                         <option value="">Select an option...</option>
