@@ -1426,10 +1426,10 @@
                             </div>
 
                             <!-- File Upload -->
-                                <input type="file" id="photoUpload" name="files" multiple accept="image/*,.pdf,.doc,.docx,.zip" class="file-upload-input">
+                                <input type="file" id="fileUpload" name="files" multiple accept="image/*,.pdf,.doc,.docx,.zip" class="file-upload-input">
                                 <h3 style="font-size:18px; font-weight:bold; color:#333; margin-bottom:15px; border-bottom:2px solid #f093fb; padding-bottom:5px;">Project Files (Optional)</h3>
                                 <p style="font-size:12px; color:#666; margin-bottom:10px;">Upload any relevant files, logos, or reference materials (max 10MB total)</p>
-                                <input type="file" id="photoUpload" name="files" multiple accept="image/*,.pdf,.doc,.docx,.zip" style="width:100%; padding:10px; border:2px dashed #eee; border-radius:8px; background:#fafafa; cursor:pointer;">
+                                <input type="file" id="fileUploadStyled" name="files" multiple accept="image/*,.pdf,.doc,.docx,.zip" style="width:100%; padding:10px; border:2px dashed #eee; border-radius:8px; background:#fafafa; cursor:pointer;">
                             </div>
 
                             <!-- Submit Button -->
@@ -1727,7 +1727,6 @@
                     startProgressUpdate();
                     statusEl.textContent = 'Now playing: ' + tracks[currentTrackIndex].title + ' 🎶';
                 }).catch(e => {
-                    console.log('Audio play failed:', e);
                     btn.textContent = '▶️';
                     btn.disabled = false;
                     statusEl.textContent = 'Audio failed to load ⚠️';
@@ -1844,7 +1843,6 @@
             const audio = document.getElementById(track.audioId);
             audio.addEventListener('ended', nextTrack);
             audio.addEventListener('error', (e) => {
-                console.log('Audio error for', track.title, e);
                 // Show user-friendly error
                 const errorMsg = document.createElement('div');
                 errorMsg.style.cssText = 'position:fixed;bottom:20px;left:20px;background:#ff6b6b;color:white;padding:10px;border-radius:5px;z-index:1000;max-width:300px;';
@@ -1859,7 +1857,6 @@
             });
             audio.addEventListener('canplay', () => {
                 // Audio loaded successfully
-                console.log('Audio loaded:', track.title);
             });
         });
 
