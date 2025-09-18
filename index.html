@@ -94,6 +94,9 @@
         /* Error Messages */
         .error-message { color:#cc0000; font-size:10px; margin-top:2px; display:none; }
 
+        /* File Upload */
+        .file-upload-input { width:100%; padding:10px; border:2px dashed #eee; border-radius:8px; background:#fafafa; cursor:pointer; }
+
         /* Result Container */
         .result-container { display:none; background:#fff; border:1px solid #ccc; padding:15px; margin-top:15px; }
         .confirmation-message { background:#e6ffe6; border:1px solid #66cc66; padding:10px; margin-bottom:15px; color:#006600; font-weight:bold; text-align:center; }
@@ -1423,7 +1426,7 @@
                             </div>
 
                             <!-- File Upload -->
-                            <div style="margin-bottom:25px;">
+                                <input type="file" id="photoUpload" name="files" multiple accept="image/*,.pdf,.doc,.docx,.zip" class="file-upload-input">
                                 <h3 style="font-size:18px; font-weight:bold; color:#333; margin-bottom:15px; border-bottom:2px solid #f093fb; padding-bottom:5px;">Project Files (Optional)</h3>
                                 <p style="font-size:12px; color:#666; margin-bottom:10px;">Upload any relevant files, logos, or reference materials (max 10MB total)</p>
                                 <input type="file" id="photoUpload" name="files" multiple accept="image/*,.pdf,.doc,.docx,.zip" style="width:100%; padding:10px; border:2px dashed #eee; border-radius:8px; background:#fafafa; cursor:pointer;">
