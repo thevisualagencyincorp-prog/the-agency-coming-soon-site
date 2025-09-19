@@ -8,7 +8,15 @@
     "dev": "python3 -m http.server 8000",
     "clean": "rm -rf dist"
   },
-  "keywords": ["agency", "marketing", "website", "myspace"],
+  "keywords": [
+    "agency",
+    "marketing",
+    "website",
+    "myspace"
+  ],
   "author": "The Agency",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.2.0"
+  }
 }
