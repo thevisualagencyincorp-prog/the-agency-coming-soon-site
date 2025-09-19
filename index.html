@@ -267,7 +267,6 @@
         .flex-gap-15 { display:flex; gap:15px; align-items:flex-start; }
         .flex-1 { flex:1; }
         .mr-8 { margin-right:8px; }
-        .display-none { display:none; }
         .p-15 { padding:15px; }
         .block-bold { display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px; }
         .abs-top-right { position:absolute; top:5px; right:5px; background:rgba(0,0,0,.7); color:white; padding:2px 6px; border-radius:10px; font-size:8px; }
@@ -637,7 +636,7 @@
 
                                 <!-- Grid populated by JS -->
                                 <div class="ig-grid" id="igGrid"></div>
-                                <div class="ig-error" id="igError" class="display-none"></div>
+                                <div class="ig-error display-none" id="igError"></div>
 
                                 <div style="margin-top:15px; text-align:center;">
                                     <button onclick="followInstagram()" style="background: linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); color:white; border:none; padding:8px 16px; border-radius:20px; font-size:10px; cursor:pointer; font-weight:bold;">
@@ -647,7 +646,7 @@
                             </div>
 
                             <!-- Fallback Gallery (unchanged) -->
-                            <div class="photo-gallery" id="instagramFeed" class="display-none">
+                            <div class="photo-gallery display-none" id="instagramFeed">
                                 <div class="gallery-item" onclick="openInstagramPost('brand-identity-project')">
                                     <div class="gallery-image" style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:white; font-weight:bold; font-size:10px; text-align:center;">
                                         Brand Identity<br/>Project ✨
@@ -1561,27 +1560,60 @@
 
     <script>
         // -------- Instagram Basic Display API config --------
-        // WHY: Instagram doesn't allow embedding a full "profile feed" without API.
-        // Use a long-lived User Token from the Instagram Basic Display API.
-        // Quick steps: Facebook App (Basic Display) -> Add Instagram Testers -> Authorize -> Exchange for long-lived token (60 days) -> paste below.
-        const IG_USERNAME = 'meet_the_agency';
-        const IG_USER_ID = '627938290152102';           // e.g., '17841400000000000'
-        const IG_ACCESS_TOKEN = 'vnYG2KQZCO_M5DgUlRho0G5_l1U'; // e.g., 'IGQVJ...'; must be a long-lived token
+        // Define window.IG_FEED_CONFIG = { username, userId, accessToken } *before* this script runs
+        // if you want to load a live Instagram feed. Any values provided here are public on the web,
+        // so avoid storing sensitive tokens in the repository. Prefer a server-side proxy when possible.
+        const instagramDefaults = {
+            username: 'meet_the_agency',
+            userId: '',
+            accessToken: ''
+        };
+        const instagramConfig = Object.assign(
+            {},
+            instagramDefaults,
+            typeof window !== 'undefined' ? (window.IG_FEED_CONFIG || {}) : {}
+        );
+        const IG_USERNAME = instagramConfig.username;
+        const IG_USER_ID = instagramConfig.userId;
+        const IG_ACCESS_TOKEN = instagramConfig.accessToken;
 
         async function loadInstagramFeed() {
             const grid = document.getElementById('igGrid');
             const err = document.getElementById('igError');
+            const fallbackGallery = document.getElementById('instagramFeed');
+            const widget = document.getElementById('instagramWidget');
             if (!grid || !err) return;
 
-            // Guard: show helpful message if creds missing
-            if (!IG_USER_ID || !IG_ACCESS_TOKEN || IG_USER_ID.includes('YOUR_') || IG_ACCESS_TOKEN.includes('YOUR_')) {
+            const resetView = () => {
+                err.style.display = 'none';
+                err.textContent = '';
+                if (fallbackGallery) {
+                    fallbackGallery.classList.add('display-none');
+                    fallbackGallery.style.display = 'none';
+                }
+                if (widget) widget.style.display = '';
+            };
+
+            const showFallback = (message) => {
                 err.style.display = 'block';
-                err.textContent = 'Connect Instagram: add IG_USER_ID and a long-lived IG_ACCESS_TOKEN in the script to load the live feed.';
+                err.textContent = message;
+                grid.innerHTML = '';
+                if (fallbackGallery) {
+                    fallbackGallery.classList.remove('display-none');
+                    fallbackGallery.style.display = 'grid';
+                }
+                if (widget) widget.style.display = 'none';
+            };
+
+            resetView();
+
+            if (!IG_USER_ID || !IG_ACCESS_TOKEN) {
+                const account = IG_USERNAME ? ` @${IG_USERNAME}` : '';
+                showFallback(`Connect Instagram${account}: define window.IG_FEED_CONFIG with a publicly shareable userId and accessToken, or proxy the API server-side.`);
                 return;
             }
 
             try {
-                // Fetch latest media
                 const url = new URL('https://graph.instagram.com/me/media');
                 url.searchParams.set('fields', 'id,media_type,media_url,thumbnail_url,permalink,caption');
                 url.searchParams.set('access_token', IG_ACCESS_TOKEN);
@@ -1593,24 +1625,31 @@
 
                 const items = Array.isArray(data.data) ? data.data : [];
                 if (!items.length) {
-                    err.style.display = 'block';
-                    err.textContent = 'No Instagram posts found.';
+                    showFallback('No Instagram posts found. Showing curated highlights instead.');
                     return;
                 }
 
                 grid.innerHTML = items.map(m => {
                     const imgSrc = (m.media_type === 'VIDEO' && m.thumbnail_url) ? m.thumbnail_url : m.media_url;
                     const safeCaption = (m.caption || '').slice(0, 80);
+                    const tooltip = safeCaption.replace(/"/g,'&quot;');
                     return `
-                      <a class="ig-item" href="${m.permalink}" target="_blank" rel="noopener noreferrer" title="${safeCaption.replace(/"/g,'&quot;')}">
-                        <img loading="lazy" src="${imgSrc}" alt="${safeCaption.replace(/"/g,'&quot;')}" />
+                      <a class="ig-item" href="${m.permalink}" target="_blank" rel="noopener noreferrer" title="${tooltip}">
+                        <img loading="lazy" src="${imgSrc}" alt="${tooltip}" />
                         <span class="ig-badge">View</span>
                       </a>`;
                 }).join('');
+
+                if (fallbackGallery) {
+                    fallbackGallery.classList.add('display-none');
+                    fallbackGallery.style.display = 'none';
+                }
+                if (widget) widget.style.display = '';
+                err.style.display = 'none';
+                err.textContent = '';
             } catch (e) {
-                err.style.display = 'block';
-                err.textContent = 'Unable to load Instagram right now.';
                 console.error(e);
+                showFallback('Unable to load Instagram right now. Showing curated highlights instead.');
             }
         }
         // ----------------------------------------------------
