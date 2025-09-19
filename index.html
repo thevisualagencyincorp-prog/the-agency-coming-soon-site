@@ -10,7 +10,7 @@
 
     <style>
         h1, h2, h3 { font-size:16px; }
-        body { font-family: Verdana, Arial, sans-serif; font-size:14px; background:#ffffff; color:#000; line-height:1.3; }
+        body { font-family: Verdana, Arial, sans-serif; font-size:14px; background:#ffffff url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="1" fill="pink" opacity="0.1"/></svg>') repeat; color:#000; line-height:1.3; cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><circle cx="8" cy="8" r="7" fill="pink" stroke="hotpink"/></svg>'), auto; }
 
         /* Top Navigation Bar */
         .top-nav { background:linear-gradient(to bottom,#6699cc 0%,#336699 100%); height:30px; border-bottom:1px solid #003366; display:flex; align-items:center; padding:0 10px; color:#fff; font-size:10px; }
@@ -96,7 +96,11 @@
         /* Error Messages */
         .error-message { color:#cc0000; font-size:10px; margin-top:2px; display:none; }
 
-        /* Y2K Cute Styles */
+        .blink { animation: blink 1s infinite; }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
         .sparkle { animation: sparkle 2s infinite; }
         @keyframes sparkle {
             0%, 100% { opacity: 1; transform: scale(1); }
@@ -367,10 +371,7 @@
         <div class="profile-header">
             <div class="profile-info">
                 <div class="profile-pic" onclick="document.getElementById('photoUpload').click()">
-                    <img src="images/Ash&Britt-TheAgency-ProfilePhoto-Lighter.png" alt="Ash and Britt, two sisters and cofounders of The Agency, smiling shoulder to shoulder and looking at the camera in a close studio portrait with a soft neutral background, conveying a warm friendly professional tone" loading="lazy" style="width:100%; height:100%; object-fit:cover;" />
-                    <div class="photo-upload-overlay">Click to upload photo</div>
-                    <input type="file" id="photoUpload" class="photo-upload-input" accept="image/*">
-                </div>
+                    <img src="images/Ash&Britt-TheAgency-ProfilePhoto-Lighter.png" alt="Ash and Britt, two sisters and cofounders of The Agency, smiling shoulder to shoulder and looking at the camera in a close studio portrait with a soft neutral background, conveying a warm friendly professional tone" loading="lazy" style="width:100%; height:100%; object-fit:cover;" />  </div>
                 <div class="profile-details">
                     <h1>The Agency</h1>
                     <p><strong>Creative Team</strong></p>
@@ -384,17 +385,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Navigation Tabs -->
-        <div class="nav-tabs">
-            <div class="nav-tab active" data-tab="home">Home</div>
-            <div class="nav-tab" data-tab="portfolio">Portfolio</div>
-            <div class="nav-tab" data-tab="services">Services</div>
-            <div class="nav-tab" data-tab="about">About</div>
-            <div class="nav-tab" data-tab="contact">Contact</div>
-            <div class="nav-tab" data-tab="blog">Blog</div>
-            <div class="nav-tab" data-tab="testimonials">Reviews</div>
         </div>
 
         <!-- Main Content -->
@@ -532,12 +522,12 @@
                 <!-- Home Tab -->
                 <div class="tab-content" id="home-content">
                     <div class="module">
-                        <div class="module-header">Welcome to The Agency!</div>
+                        <div class="module-header gradient-bg">Welcome to <span class="blink">The Agency!</span></div>
                         <div class="module-content">
                             <div class="under-construction"><strong>🚧 UNDER CONSTRUCTION 🚧</strong><br/><span class="fs-9">This page is being updated with fresh content!</span></div>
-                            <p>Hey there! Welcome to our creative corner of Our-Space. We're The Agency - your go-to marketing agency for small business branding, web design, and digital marketing that actually works!</p>
+                            <p>Hey there friend! Welcome to our creative corner of the interwebs. We're The Agency, your go-to marketing friend for all business branding, web design, and digital marketing that actually works!</p>
                             <p><strong>What we're up to:</strong></p>
-                            <ul>
+
                                 <li>🎨 Custom logo design & brand identity packages for all businesses</li>
                                 <li>💻 Professional website design & development with SEO optimization</li>
                                 <li>📈 Local SEO marketing & Google Ads management for business growth</li>
@@ -744,7 +734,7 @@
                 </div>
 
                 <!-- Portfolio -->
-                <div class="tab-content display-none" id="portfolio-content">
+                <div class="tab-content" id="portfolio-content">
                     <!-- (unchanged content) -->
                     <div class="module">
                         <div class="module-header">Our Work</div>
@@ -795,7 +785,7 @@
                 </div>
 
                 <!-- Services -->
-                <div class="tab-content display-none" id="services-content">
+                <div class="tab-content" id="services-content">
                     <div class="module">
                         <div class="module-header">Our Services</div>
                         <div class="module-content">
@@ -1065,7 +1055,7 @@
                 </div>
 
                 <!-- About -->
-                <div class="tab-content display-none" id="about-content">
+                <div class="tab-content" id="about-content">
                     <div class="module">
                         <div class="module-header">About The Agency</div>
                         <div class="module-content">
@@ -1142,7 +1132,7 @@
                 </div>
 
                 <!-- Blog -->
-                <div class="tab-content display-none" id="blog-content">
+                <div class="tab-content" id="blog-content">
                     <div class="module">
                         <div class="module-header">📝 The Agency Blog</div>
                         <div class="module-content">
@@ -1237,7 +1227,7 @@
                 </div>
 
                 <!-- Testimonials -->
-                <div class="tab-content display-none" id="testimonials-content">
+                <div class="tab-content" id="testimonials-content">
                     <div class="module">
                         <div class="module-header">⭐ Client Reviews & Testimonials</div>
                         <div class="module-content">
@@ -1404,7 +1394,7 @@
                 </div>
 
                 <!-- Contact -->
-                <div class="tab-content contact-form display-none" id="contact-content">
+                <div class="tab-content contact-form" id="contact-content">
                     <div style="max-width:800px; margin:0 auto; padding:20px;">
                         <div style="text-align:center; margin-bottom:30px;">
                             <h2 style="font-size:28px; font-weight:bold; color:#333; margin-bottom:10px;">Let's Create Something Amazing Together</h2>
