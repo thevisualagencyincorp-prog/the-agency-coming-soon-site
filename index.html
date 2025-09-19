@@ -25,8 +25,8 @@
         .header-links a { color:#fff; text-decoration:none; font-size:11px; font-weight:bold; }
         .header-links a:hover { text-decoration:underline; }
 
-        /* Main Container */
-        .container { max-width:800px; margin:0 auto; background:#fff; min-height:100vh; }
+        /* Main Container - Classic MySpace Layout */
+        .container { max-width:800px; margin:0 auto; background:#fff; min-height:100vh; border-left:1px solid #ccc; border-right:1px solid #ccc; border-bottom:1px solid #ccc; }
 
         /* Profile Header */
         .profile-header { background:#fff; padding:15px; border-bottom:1px solid #ccc; }
@@ -40,20 +40,22 @@
         .profile-details p { margin-bottom:3px; font-size:11px; }
         .profile-stats { margin-top:10px; font-size:10px; color:#666; }
 
-        /* Navigation Tabs */
+        /* Navigation Tabs - Classic MySpace Style */
         .nav-tabs { background:#f0f0f0; border-bottom:1px solid #ccc; padding:0; display:flex; }
         .nav-tab { background:#e0e0e0; border:1px solid #ccc; border-bottom:none; padding:8px 15px; margin-right:2px; cursor:pointer; font-size:11px; font-weight:bold; color:#333; }
         .nav-tab.active { background:#fff; border-bottom:1px solid #fff; margin-bottom:-1px; color:#6699cc; }
         .nav-tab:hover { background:#f5f5f5; }
 
-        /* Main Content Area */
-        .main-content { display:flex; background:#fff; }
-        .left-column { width:300px; padding:15px; border-right:1px solid #ccc; background:#fff; }
-        .right-column { flex:1; padding:15px; background:#fff; }
+        /* Main Content Area - Classic Two-Column Layout */
+        .main-content { display:flex; background:#fff; border-top:1px solid #ccc; }
+        .left-column { width:300px; padding:15px; border-right:1px solid #ccc; background:#f9f9f9; min-height:600px; }
+        .right-column { flex:1; padding:15px; background:#fff; min-height:600px; }
 
-        /* Module Boxes */
+        /* Module Boxes - Classic MySpace Style */
         .module { background:#fff; border:1px solid #ccc; margin-bottom:15px; }
+        .module.cute-border { border:2px solid #ff9a9e; border-radius:8px; }
         .module-header { background:linear-gradient(to bottom,#6699cc 0%,#336699 100%); color:#fff; padding:5px 10px; font-weight:bold; font-size:11px; border-bottom:1px solid #ccc; }
+        .module-header.gradient-bg { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); }
         .module-content { padding:10px; font-size:11px; line-height:1.4; }
 
         /* Friends Module */
@@ -261,12 +263,22 @@
         .ig-error { font-size:10px; color:#999; text-align:center; padding:10px 0; }
 
         @media (max-width:768px){
-            .container{max-width:100%;}
+            .container{max-width:100%; border:none;}
             .left-column{width:250px;}
             .profile-info{flex-direction:column; align-items:center; text-align:center;}
             .friends-grid{grid-template-columns:repeat(2,1fr);}
             .interactive-services-grid{grid-template-columns:1fr;}
             .ig-grid{grid-template-columns:repeat(2,1fr);}
+        }
+
+        @media (max-width:480px){
+            .main-content{flex-direction:column;}
+            .left-column{width:100%; border-right:none; border-bottom:1px solid #ccc; background:#fff;}
+            .right-column{width:100%; border-top:1px solid #ccc;}
+            .profile-info{flex-direction:column; align-items:center; text-align:center;}
+            .friends-grid{grid-template-columns:repeat(2,1fr);}
+            .top-nav{display:none;}
+            .header .header-links{display:none;}
         }
 
         /* Common Inline Style Classes */
@@ -333,10 +345,57 @@
         /* Form Help Text */
         .form-help-text { font-size:11px; color:#666; margin-top:10px; }
 
-        /* Visitor Counter Screen */
-        .visitor-screen { background:#000; color:#00ff00; font-family:'Courier New', monospace; padding:8px; border:2px inset #ccc; margin-bottom:8px; }
-        .visitor-screen-number { font-size:16px; font-weight:bold; letter-spacing:2px; }
-        .visitor-screen-label { font-size:10px; }
+        /* Classic MySpace Sparkle Effects */
+        .sparkle { position:relative; overflow:hidden; }
+        .sparkle::before {
+            content:'✨';
+            position:absolute;
+            top:5px;
+            right:5px;
+            font-size:12px;
+            animation:sparkle 2s infinite;
+        }
+        @keyframes sparkle {
+            0%, 100% { opacity:0; transform:scale(0.8); }
+            50% { opacity:1; transform:scale(1.2); }
+        }
+
+        /* Mood Ring - Classic MySpace Element */
+        .mood-ring {
+            width:80px;
+            height:80px;
+            border-radius:50%;
+            background:conic-gradient(from 0deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #dda0dd, #98d8c8);
+            margin:0 auto;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            cursor:pointer;
+            transition:transform 0.3s ease;
+            position:relative;
+        }
+        .mood-ring:hover { transform:scale(1.1); }
+        .mood-center {
+            width:60px;
+            height:60px;
+            border-radius:50%;
+            background:#fff;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:24px;
+            border:2px solid #ccc;
+        }
+
+        /* Visitor Counter - Classic MySpace Style */
+        .visitor-counter-content {
+            text-align:center;
+            background:#000;
+            color:#00ff00;
+            font-family:'Courier New', monospace;
+            padding:10px;
+            border:2px inset #333;
+        }
         .marquee-margin-top { margin-top:8px; }
 
         /* Coffee Club Gathering */
