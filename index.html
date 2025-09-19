@@ -9,8 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;700&family=Arial:wght@400;700&display=swap" rel="stylesheet"/>
 
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family: Verdana, Arial, sans-serif; font-size:11px; background:#ffffff; color:#000; line-height:1.3; }
+        h1, h2, h3 { font-size:16px; }
+        body { font-family: Verdana, Arial, sans-serif; font-size:14px; background:#ffffff; color:#000; line-height:1.3; }
 
         /* Top Navigation Bar */
         .top-nav { background:linear-gradient(to bottom,#6699cc 0%,#336699 100%); height:30px; border-bottom:1px solid #003366; display:flex; align-items:center; padding:0 10px; color:#fff; font-size:10px; }
@@ -96,8 +96,24 @@
         /* Error Messages */
         .error-message { color:#cc0000; font-size:10px; margin-top:2px; display:none; }
 
-        /* File Upload */
-        .file-upload-input { width:100%; padding:10px; border:2px dashed #eee; border-radius:8px; background:#fafafa; cursor:pointer; }
+        /* Y2K Cute Styles */
+        .sparkle { animation: sparkle 2s infinite; }
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        .cute-border { border: 3px solid #ff69b4; border-radius: 10px; box-shadow: 0 0 10px rgba(255, 105, 180, 0.5); }
+        .gradient-bg { background: linear-gradient(45deg, #ff69b4, #ffa500, #00ff00, #1e90ff, #ff1493); background-size: 400% 400%; animation: gradient-shift 5s ease infinite; }
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .emoji-float { animation: float 3s ease-in-out infinite; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
 
         /* Utility Classes */
         .mb-15 { margin-bottom: 15px; }
@@ -351,7 +367,7 @@
         <div class="profile-header">
             <div class="profile-info">
                 <div class="profile-pic" onclick="document.getElementById('photoUpload').click()">
-                    <span id="profileIcon">🏢</span>
+                    <img src="images/Ash&Britt-TheAgency-ProfilePhoto-Lighter.png" alt="Ash and Britt, two sisters and cofounders of The Agency, smiling shoulder to shoulder and looking at the camera in a close studio portrait with a soft neutral background, conveying a warm friendly professional tone" loading="lazy" style="width:100%; height:100%; object-fit:cover;" />
                     <div class="photo-upload-overlay">Click to upload photo</div>
                     <input type="file" id="photoUpload" class="photo-upload-input" accept="image/*">
                 </div>
@@ -385,8 +401,8 @@
         <div class="main-content">
             <!-- Left Column -->
             <div class="left-column">
-                <div class="module">
-                    <div class="module-header">The Agency's Interests</div>
+                <div class="module cute-border">
+                    <div class="module-header gradient-bg">The Agency's Interests</div>
                     <div class="module-content">
                         <p><strong>General:</strong> Creative design, branding, helping businesses grow, coffee, late-night brainstorming sessions</p>
                         <p><strong>Music:</strong> Lo-fi beats, indie rock, anything that keeps the creative energy flowing</p>
@@ -425,8 +441,8 @@
                 <div class="module">
                     <div class="module-header">The Agency's Mood</div>
                     <div class="module-content text-center">
-                        <div class="mood-ring" id="moodRing" onclick="changeMood()">
-                            <div class="mood-center" id="moodCenter">😊</div>
+                        <div class="mood-ring sparkle" id="moodRing" onclick="changeMood()">
+                            <div class="mood-center emoji-float" id="moodCenter">😊</div>
                         </div>
                         <div style="margin-top:8px; font-size:10px;">
                             <strong id="moodText">Creative & Inspired</strong><br/><span class="fs-9-gray">Click to change mood!</span>
