@@ -8,7 +8,7 @@
     --small-text: #666;
 }
 
-/* Critical above-the-fold styles */
+/* Critical above-the-fold styles - Optimized for performance */
 h1, h2, h3 { font-size:18px; }
 body {
     font-family: Verdana, Arial, sans-serif;
@@ -18,6 +18,10 @@ body {
     line-height:1.4; /* Improved line height for readability */
     margin:0;
     padding:0;
+    /* Performance optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* Top Navigation Bar */
@@ -746,5 +750,45 @@ iframe { border: none; }
 
     .photo-gallery {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Performance Optimizations */
+.lazy {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.lazy.loaded {
+    opacity: 1;
+}
+
+/* Optimize animations for performance */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Optimize for touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .top-nav a:hover,
+    .header-links a:hover,
+    .nav-tab:hover {
+        background: none;
+        text-decoration: none;
     }
 }

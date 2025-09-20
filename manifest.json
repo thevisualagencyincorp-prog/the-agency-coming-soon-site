@@ -1,0 +1,28 @@
+{
+  "name": "The Agency - Creative Design & Marketing",
+  "short_name": "The Agency",
+  "description": "Professional branding, web design, and digital marketing services. 16+ years of creative excellence for small businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6699cc",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "images/Ash&Britt-TheAgency-ProfilePhoto-Lighter.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/Ash&Britt-TheAgency-ProfilePhoto-Lighter.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "design", "marketing", "productivity"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

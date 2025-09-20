@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Allow all important pages
+Allow: /
+Allow: /index.html
+Allow: /portfolio
+Allow: /services
+Allow: /about
+Allow: /contact
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+# Sitemap
+Sitemap: https://meettheagency.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
