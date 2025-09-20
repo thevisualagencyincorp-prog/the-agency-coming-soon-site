@@ -106,18 +106,13 @@
             margin-top: 15px;
         }
 
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 24px;
-            }
+        .fade-out {
+            animation: fadeOut 0.5s ease-in-out forwards;
+        }
 
-            .loading-text {
-                font-size: 14px;
-            }
-
-            .loading-container {
-                padding: 15px;
-            }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
         }
     </style>
 </head>
@@ -141,10 +136,13 @@
     </div>
 
     <script>
-        // Redirect to main page after loading animation
+        // Redirect to main page after loading animation with fade effect
         setTimeout(() => {
-            window.location.href = 'index.html';
-        }, 3500);
+            document.querySelector('.loading-container').classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 500); // Wait for fade animation to complete
+        }, 3000); // Start fade 0.5s before redirect (total 3.5s)
     </script>
 </body>
 </html>
