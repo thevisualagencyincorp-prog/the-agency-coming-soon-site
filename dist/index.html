@@ -437,11 +437,11 @@
                 <div class="module">
                     <div class="module-header">The Agency's Mood</div>
                     <div class="module-content text-center">
-                        <div class="mood-ring" id="moodRing" onclick="changeMood()">
-                            <div class="mood-center" id="moodCenter">😊</div>
+                        <div class="mood-ring" id="moodRingPreview" onclick="/* preview only - no-op */">
+                            <div class="mood-center" id="moodCenterPreview" aria-hidden="true">😊</div>
                         </div>
                         <div style="margin-top:8px; font-size:10px;">
-                            <strong id="moodText">Creative & Inspired</strong><br/><span class="fs-9-gray">Click to change mood!</span>
+                            <strong id="moodTextPreview">Creative & Inspired</strong><br/><span class="fs-9-gray">Click to change mood!</span>
                         </div>
                     </div>
                 </div>
@@ -451,9 +451,9 @@
                     <div class="module-content">
                         <div style="text-align:center; margin-bottom:10px;">
                             <div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:white; padding:8px; border-radius:4px; margin-bottom:8px;">
-                                <strong>🎯 The Agency Insider</strong><br/><span class="fs-9">Marketing secrets that actually work!</span>
+                                <strong>🎯 New News Newsletter</strong><br/><span class="fs-9">Marketing secrets that actually work!</span>
                             </div>
-                            <p style="font-size:10px; margin-bottom:8px;">Get monthly tips, trends, and behind-the-scenes insights from 16 years in marketing!</p>
+                            <p style="font-size:10px; margin-bottom:8px;">Get monthly tips, trends, and behind-the-scenes insights!</p>
                         </div>
                         <div style="display:flex; gap:4px; margin-bottom:8px;">
                             <input type="email" placeholder="your@email.com" style="flex:1; padding:4px; font-size:10px; border:1px solid #ccc;" id="newsletterEmail"/>
@@ -489,9 +489,8 @@
                         <div class="coffee-club-footer">Limited to 20 spots • Bring headphones for focus time • Schedule TBD</div>
                     </div>
                 </div>
-
                 <div class="module">
-                    <div class="module-header">Sign My Guestbook!</div>
+                    <div class="module-header">Sign Our Guestbook!</div>
                     <div class="module-content">
                         <div style="background:#f9f9f9; border:1px solid #ccc; padding:8px; margin-bottom:8px; max-height:120px; overflow-y:auto;" id="guestbookEntries">
                             <div class="guestbook-entry"><strong>CreativeGuru2005:</strong> Love your work! Your designs are so fresh! 🎨<br/><span class="fs-9-gray">Posted: 2 hours ago</span></div>
