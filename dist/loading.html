@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading The Agency...</title>
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .loading-container {
+            text-align: center;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .loading-text {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .progress-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+            margin: 0 auto 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: white;
+            width: 0%;
+            animation: fill 3s ease-in-out forwards;
+        }
+
+        @keyframes fill {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        .loading-dots {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .loading-dots::after {
+            content: '';
+            animation: dots 1.5s infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: ''; }
+            40% { content: '.'; }
+            60% { content: '..'; }
+            80%, 100% { content: '...'; }
+        }
+
+        .myspace-style {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            padding: 20px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .tagline {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 15px;
+        }
+
+        .fade-out {
+            animation: fadeOut 0.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container myspace-style">
+        <div class="logo">The Agency</div>
+        <div class="loading-text">Loading your MySpace experience...</div>
+
+        <div class="spinner"></div>
+
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
+        <div class="loading-dots">Please wait</div>
+
+        <div class="tagline">
+            ✨ Creative Marketing & Design ✨<br>
+            Sister Duo • Tehachapi, CA
+        </div>
+    </div>
+
+    <script>
+        // Redirect to main page after loading animation with fade effect
+        setTimeout(() => {
+            document.querySelector('.loading-container').classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 500); // Wait for fade animation to complete
+        }, 3000); // Start fade 0.5s before redirect (total 3.5s)
+    </script>
+</body>
+</html>
