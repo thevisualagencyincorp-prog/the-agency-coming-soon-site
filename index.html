@@ -521,14 +521,45 @@
         .line-height-1-5 { line-height:1.5; }
         .line-height-1-6 { line-height:1.6; }
 
-        /* Contact Form Select Styles */
-        .contact-select { width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; background:#fff; }
+        /* Contact Module */
+        .contact-module .module-content { padding:0; }
+        .contact-intro { font-size:10px; color:#333; background:#f5f5f5; padding:10px; border-bottom:1px solid #ccc; line-height:1.4; }
+        .contact-box { width:100%; background:#fff; }
+        .contact-row { display:flex; align-items:center; border-bottom:1px solid #ccc; }
+        .contact-row:last-of-type { border-bottom:none; }
+        .contact-row.stacked { align-items:flex-start; flex-direction:column; }
+        .contact-label { width:40%; min-width:120px; background:#f9f9f9; padding:6px 8px; font-weight:bold; font-size:10px; color:#333; border-right:1px solid #ccc; text-transform:uppercase; }
+        .contact-row.stacked .contact-label { width:100%; border-right:none; border-bottom:1px solid #ccc; }
+        .contact-field { flex:1; padding:6px 8px; font-size:10px; display:flex; flex-wrap:wrap; gap:6px; align-items:center; background:#fff; }
+        .contact-row.stacked .contact-field { width:100%; }
+        .contact-input,
+        .contact-select,
+        .contact-textarea,
+        .contact-file { width:100%; border:1px solid #999; padding:4px 6px; font-size:10px; font-family: Verdana, Arial, sans-serif; background:#fff; border-radius:0; line-height:1.3; }
+        .contact-select { min-height:24px; }
+        .contact-textarea { min-height:60px; resize:vertical; }
+        .contact-checkboxes { display:flex; flex-direction:column; gap:4px; width:100%; }
+        .contact-checkboxes label { display:flex; align-items:center; gap:4px; font-size:10px; }
+        .contact-checkboxes input { margin:0; }
+        .contact-actions { padding:8px 10px; background:#f5f5f5; border-top:1px solid #ccc; display:flex; flex-direction:column; gap:6px; align-items:flex-end; }
+
+        .contact-input:focus,
+        .contact-select:focus,
+        .contact-textarea:focus,
+        .contact-file:focus { outline:none; border-color:#6699cc; background:#f0f6ff; }
 
         /* Submit Button Styles */
-        .submit-message-btn { background:linear-gradient(135deg,#fa709a 0%,#fee140 100%); color:#333; border:none; padding:15px 40px; border-radius:25px; font-weight:bold; font-size:16px; cursor:pointer; transition:transform 0.2s; }
-        
+        .submit-message-btn { background:#6699cc; color:#fff; border:1px solid #003366; padding:6px 18px; font-weight:bold; font-size:11px; cursor:pointer; }
+        .submit-message-btn:hover { background:#557fb0; }
+
         /* Form Help Text */
-        .form-help-text { font-size:11px; color:#666; margin-top:10px; }
+        .form-help-text { font-size:9px; color:#555; margin:0; text-align:left; align-self:flex-start; }
+
+        @media (max-width:600px) {
+            .contact-row { flex-direction:column; align-items:stretch; }
+            .contact-label { width:100%; border-right:none; border-bottom:1px solid #ccc; }
+            .contact-field { width:100%; }
+        }
 
         /* Classic MySpace Sparkle Effects */
         .sparkle { position:relative; overflow:hidden; }
@@ -1650,148 +1681,138 @@
 
                 <!-- Contact -->
                 <div class="tab-content contact-form" id="contact-content">
-                    <div style="max-width:800px; margin:0 auto; padding:20px;">
-                        <div style="text-align:center; margin-bottom:30px;">
-                            <h2 style="font-size:28px; font-weight:bold; color:#333; margin-bottom:10px;">Let's Create Something Amazing Together</h2>
-                            <p style="font-size:14px; color:#666; line-height:1.6;">Ready to bring your vision to life? Tell us about your project and we'll craft the perfect solution.</p>
+                    <div class="module contact-module">
+                        <div class="module-header">Contacting The Agency</div>
+                        <div class="module-content">
+                            <p class="contact-intro">Use the classic form below to send Ash &amp; Britt a note. Fields marked with * are required.</p>
+                            <form id="contactForm" class="contact-box">
+                                <div class="contact-row">
+                                    <span class="contact-label">First Name *</span>
+                                    <div class="contact-field">
+                                        <input type="text" name="firstName" required class="contact-input" placeholder="First name">
+                                    </div>
+                                </div>
+                                <div class="contact-row">
+                                    <span class="contact-label">Last Name *</span>
+                                    <div class="contact-field">
+                                        <input type="text" name="lastName" required class="contact-input" placeholder="Last name">
+                                    </div>
+                                </div>
+                                <div class="contact-row">
+                                    <span class="contact-label">Email *</span>
+                                    <div class="contact-field">
+                                        <input type="email" name="email" required class="contact-input" placeholder="your.email@example.com">
+                                    </div>
+                                </div>
+                                <div class="contact-row">
+                                    <span class="contact-label">Phone</span>
+                                    <div class="contact-field">
+                                        <input type="tel" name="phone" class="contact-input" placeholder="(555) 123-4567">
+                                    </div>
+                                </div>
+                                <div class="contact-row">
+                                    <span class="contact-label">Company</span>
+                                    <div class="contact-field">
+                                        <input type="text" name="company" class="contact-input" placeholder="Company or organization">
+                                    </div>
+                                </div>
+                                <div class="contact-row">
+                                    <span class="contact-label">Project Type *</span>
+                                    <div class="contact-field">
+                                        <select id="projectType" name="projectType" title="Project Type" required class="contact-select">
+                                            <option value="">Select a project type...</option>
+                                            <option value="brand-identity">Brand Identity &amp; Logo Design</option>
+                                            <option value="web-design">Website Design &amp; Development</option>
+                                            <option value="marketing">Digital Marketing Campaign</option>
+                                            <option value="social-media">Social Media Strategy &amp; Content</option>
+                                            <option value="print-design">Print Design &amp; Materials</option>
+                                            <option value="packaging">Packaging Design</option>
+                                            <option value="photography">Photography &amp; Videography</option>
+                                            <option value="consultation">Creative Consultation</option>
+                                            <option value="other">Other (please specify below)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="contact-row">
+                                    <span class="contact-label">Budget</span>
+                                    <div class="contact-field">
+                                        <select id="budget" name="budget" title="Budget Range" class="contact-select">
+                                            <option value="">Select budget range...</option>
+                                            <option value="under-5k">Under $5,000</option>
+                                            <option value="5k-15k">$5,000 - $15,000</option>
+                                            <option value="15k-30k">$15,000 - $30,000</option>
+                                            <option value="30k-50k">$30,000 - $50,000</option>
+                                            <option value="50k-100k">$50,000 - $100,000</option>
+                                            <option value="over-100k">Over $100,000</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="contact-row">
+                                    <span class="contact-label">Timeline</span>
+                                    <div class="contact-field">
+                                        <select id="timeline" name="timeline" class="contact-select">
+                                            <option value="">Select timeline...</option>
+                                            <option value="asap">ASAP (Rush project)</option>
+                                            <option value="1-month">Within 1 month</option>
+                                            <option value="2-3-months">2-3 months</option>
+                                            <option value="3-6-months">3-6 months</option>
+                                            <option value="6-months-plus">6+ months</option>
+                                            <option value="flexible">Flexible</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="contact-row stacked">
+                                    <span class="contact-label">Services</span>
+                                    <div class="contact-field contact-checkboxes">
+                                        <label><input type="checkbox" name="services" value="branding"> Brand Strategy &amp; Identity</label>
+                                        <label><input type="checkbox" name="services" value="web-design"> Web Design &amp; Development</label>
+                                        <label><input type="checkbox" name="services" value="marketing"> Digital Marketing</label>
+                                        <label><input type="checkbox" name="services" value="social"> Social Media Management</label>
+                                        <label><input type="checkbox" name="services" value="content"> Content Creation</label>
+                                        <label><input type="checkbox" name="services" value="print"> Print Design</label>
+                                        <label><input type="checkbox" name="services" value="photo"> Photography</label>
+                                        <label><input type="checkbox" name="services" value="consultation"> Creative Consultation</label>
+                                    </div>
+                                </div>
+                                <div class="contact-row stacked">
+                                    <span class="contact-label">Project Notes *</span>
+                                    <div class="contact-field">
+                                        <textarea name="description" required rows="4" class="contact-textarea" placeholder="Describe your project, goals, and audience..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="contact-row stacked">
+                                    <span class="contact-label">Inspiration</span>
+                                    <div class="contact-field">
+                                        <textarea name="references" rows="3" class="contact-textarea" placeholder="Share links to websites or designs you love..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="contact-row stacked">
+                                    <span class="contact-label">How'd You Hear?</span>
+                                    <div class="contact-field">
+                                        <select name="referral" title="How did you hear about us" class="contact-select">
+                                            <option value="">Select an option...</option>
+                                            <option value="google">Google Search</option>
+                                            <option value="social-media">Social Media</option>
+                                            <option value="referral">Client Referral</option>
+                                            <option value="instagram">Instagram</option>
+                                            <option value="website">Our Website</option>
+                                            <option value="advertisement">Advertisement</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="contact-row stacked">
+                                    <span class="contact-label">Project Files</span>
+                                    <div class="contact-field">
+                                        <input type="file" id="fileUploadStyled" name="files" multiple accept="image/*,.pdf,.doc,.docx,.zip" title="Upload project files (images, PDFs, documents)" class="contact-file">
+                                    </div>
+                                </div>
+                                <div class="contact-actions">
+                                    <button type="submit" class="submit-message-btn">Send Message</button>
+                                    <p class="form-help-text">We'll get back to you within 24 hours!</p>
+                                </div>
+                            </form>
                         </div>
-
-                        <form id="contactForm" style="background:#fff; padding:30px; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
-                            <div style="margin-bottom:25px;">
-                                <h3 style="font-size:18px; font-weight:bold; color:#333; margin-bottom:15px; border-bottom:2px solid #fa709a; padding-bottom:5px;">Contact Information</h3>
-                                <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
-                                    <div>
-                                        <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">First Name *</label>
-                                        <input type="text" name="firstName" required style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; transition:border-color 0.3s;" placeholder="Your first name">
-                                    </div>
-                                    <div>
-                                        <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Last Name *</label>
-                                        <input type="text" name="lastName" required style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; transition:border-color 0.3s;" placeholder="Your last name">
-                                    </div>
-                                </div>
-                                <div style="margin-top:15px;">
-                                    <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Email Address *</label>
-                                    <input type="email" name="email" required style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; transition:border-color 0.3s;" placeholder="your.email@example.com">
-                                </div>
-                                <div style="margin-top:15px;">
-                                    <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Phone Number</label>
-                                    <input type="tel" name="phone" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; transition:border-color 0.3s;" placeholder="(555) 123-4567">
-                                </div>
-                                <div style="margin-top:15px;">
-                                    <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Company/Organization</label>
-                                    <input type="text" name="company" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; transition:border-color 0.3s;" placeholder="Your company name">
-                                </div>
-                            </div>
-
-                            <div style="margin-bottom:25px;">
-                                <h3 style="font-size:18px; font-weight:bold; color:#333; margin-bottom:15px; border-bottom:2px solid #ff9a9e; padding-bottom:5px;">Project Basics</h3>
-                                <div class="mb-15">
-                                    <label for="projectType" style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Project Type *</label>
-                                    <select id="projectType" name="projectType" title="Project Type" required style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; background:#fff;">
-                                        <option value="">Select a project type...</option>
-                                        <option value="brand-identity">Brand Identity & Logo Design</option>
-                                        <option value="web-design">Website Design & Development</option>
-                                        <option value="marketing">Digital Marketing Campaign</option>
-                                        <option value="social-media">Social Media Strategy & Content</option>
-                                        <option value="print-design">Print Design & Materials</option>
-                                        <option value="packaging">Packaging Design</option>
-                                        <option value="photography">Photography & Videography</option>
-                                        <option value="consultation">Creative Consultation</option>
-                                        <option value="other">Other (please specify below)</option>
-                                    </select>
-                                </div>
-                                <div class="mb-15">
-                                    <label for="budget" style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Budget Range</label>
-                                    <select id="budget" name="budget" title="Budget Range" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; background:#fff;">
-                                        <option value="">Select budget range...</option>
-                                        <option value="under-5k">Under $5,000</option>
-                                        <option value="5k-15k">$5,000 - $15,000</option>
-                                        <option value="15k-30k">$15,000 - $30,000</option>
-                                        <option value="30k-50k">$30,000 - $50,000</option>
-                                        <option value="50k-100k">$50,000 - $100,000</option>
-                                        <option value="over-100k">Over $100,000</option>
-                                    </select>
-                                </div>
-                                <div class="mb-15">
-                                    <label for="timeline" style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Timeline</label>
-                                    <select id="timeline" name="timeline" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; background:#fff;">
-                                        <option value="">Select timeline...</option>
-                                        <option value="asap">ASAP (Rush project)</option>
-                                        <option value="1-month">Within 1 month</option>
-                                        <option value="2-3-months">2-3 months</option>
-                                        <option value="3-6-months">3-6 months</option>
-                                        <option value="6-months-plus">6+ months</option>
-                                        <option value="flexible">Flexible</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div style="margin-bottom:25px;">
-                                <h3 style="font-size:18px; font-weight:bold; color:#333; margin-bottom:15px; border-bottom:2px solid #43e97b; padding-bottom:5px;">Services of Interest</h3>
-                                <p style="font-size:12px; color:#666; margin-bottom:10px;">Check all that apply:</p>
-                                <div style="display:grid; grid-template-columns:1fr; gap:10px;">
-                                    <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="branding" class="mr-8"> Brand Strategy & Identity
-                                    </label>
-                                    <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="web-design" class="mr-8"> Web Design & Development
-                                    </label>
-                                    <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="marketing" class="mr-8"> Digital Marketing
-                                    </label>
-                                    <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="social" class="mr-8"> Social Media Management
-                                    </label>
-                                    <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="content" class="mr-8"> Content Creation
-                                    </label>
-                                    <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="print" class="mr-8"> Print Design
-                                    </label>
-                                    <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="photo" class="mr-8"> Photography
-                                    </label>
-                                    <label style="display:flex; align-items:center; font-size:12px; cursor:pointer;">
-                                        <input type="checkbox" name="services" value="consultation" class="mr-8"> Creative Consultation
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div style="margin-bottom:25px;">
-                                <h3 style="font-size:18px; font-weight:bold; color:#333; margin-bottom:15px; border-bottom:2px solid #667eea; padding-bottom:5px;">Tell Us About Your Project</h3>
-                                <div class="mb-15">
-                                    <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Project Description *</label>
-                                    <textarea name="description" required rows="4" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; resize:vertical; transition:border-color 0.3s;" placeholder="Describe your project, goals, target audience, and any specific requirements..."></textarea>
-                                </div>
-                                <div class="mb-15">
-                                    <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">References or Inspiration</label>
-                                    <textarea name="references" rows="3" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; resize:vertical; transition:border-color 0.3s;" placeholder="Share links to websites, brands, or designs you love..."></textarea>
-                                </div>
-                                <div class="mb-15">
-                                    <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">How did you hear about us?</label>
-                                    <select name="referral" title="How did you hear about us" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; background:#fff;">
-                                        <option value="">Select an option...</option>
-                                        <option value="google">Google Search</option>
-                                        <option value="social-media">Social Media</option>
-                                        <option value="referral">Client Referral</option>
-                                        <option value="instagram">Instagram</option>
-                                        <option value="website">Our Website</option>
-                                        <option value="advertisement">Advertisement</option>
-                                        <option value="other">Other</option>
-                                    
-                                </div>
-                            </div>
-
-                            <div style="margin-bottom:25px;">
-                                <h3 style="font-size:18px; font-weight:bold; color:#333; margin-bottom:15px; border-bottom:2px solid #f093fb; padding-bottom:5px;">Project Files (Optional)</h3>
-                                <p style="font-size:12px; color:#666; margin-bottom:10px;">Upload any relevant files, logos, or reference materials (max 10MB total)</p>
-                                <label for="fileUploadStyled" style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Upload Files</label>
-                                <input type="file" id="fileUploadStyled" name="files" multiple accept="image/*,.pdf,.doc,.docx,.zip" title="Upload project files (images, PDFs, documents)" style="width:100%; padding:10px; border:2px dashed #eee; border-radius:8px; background:#fafafa; cursor:pointer;">
-                            </div>
-
-                            <button type="submit" class="submit-message-btn">Send Message ✨</button>
-                            <p class="form-help-text">We'll get back to you within 24 hours!</p>
-                        </form>
                     </div>
                 </div>
 
