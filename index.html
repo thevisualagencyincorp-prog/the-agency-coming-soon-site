@@ -48,11 +48,11 @@
 
         /* Main Content Area - Classic Two-Column Layout */
         .main-content { display:flex; background:#fff; border-top:1px solid #ccc; }
-        .left-column { width:300px; padding:15px; border-right:1px solid #ccc; background:#f9f9f9; min-height:600px; }
+        .left-column { width:300px; padding:15px; border-right:1px solid #ccc; background:#f9f9f9; min-height:600px; display:flex; flex-direction:column; }
         .right-column { flex:1; padding:15px; background:#fff; min-height:600px; display:flex; flex-direction:column; gap:20px; }
 
         /* Module Boxes - Classic MySpace Style */
-        .module { background:#fff; border:1px solid #ccc; margin-bottom:15px; }
+        .module { background:#fff; border:1px solid #ccc; margin-bottom:15px; width:100%; flex-shrink:0; }
         .module.cute-border { border:2px solid #ff9a9e; border-radius:8px; }
         .module-header { background:linear-gradient(to bottom,#6699cc 0%,#336699 100%); color:#fff; padding:5px 10px; font-weight:bold; font-size:11px; border-bottom:1px solid #ccc; }
         .module-header.gradient-bg { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); }
@@ -264,7 +264,7 @@
 
         @media (max-width:768px){
             .container{max-width:100%; border:none;}
-            .left-column{width:250px;}
+            .left-column{width:250px; flex-direction:column;}
             .right-column{gap:15px;}
             .profile-info{flex-direction:column; align-items:center; text-align:center;}
             .friends-grid{grid-template-columns:repeat(2,1fr);}
@@ -274,7 +274,7 @@
 
         @media (max-width:480px){
             .main-content{flex-direction:column;}
-            .left-column{width:100%; border-right:none; border-bottom:1px solid #ccc; background:#fff;}
+            .left-column{width:100%; border-right:none; border-bottom:1px solid #ccc; background:#fff; flex-direction:column;}
             .right-column{width:100%; border-top:1px solid #ccc; gap:15px;}
             .profile-info{flex-direction:column; align-items:center; text-align:center;}
             .friends-grid{grid-template-columns:repeat(2,1fr);}
@@ -1518,8 +1518,8 @@
                                     </select>
                                 </div>
                                 <div class="mb-15">
-                                    <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Budget Range</label>
-                                    <select name="budget" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; background:#fff;">
+                                    <label for="budget" style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Budget Range</label>
+                                    <select id="budget" name="budget" title="Budget Range" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; background:#fff;">
                                         <option value="">Select budget range...</option>
                                         <option value="under-5k">Under $5,000</option>
                                         <option value="5k-15k">$5,000 - $15,000</option>
@@ -1530,8 +1530,8 @@
                                     </select>
                                 </div>
                                 <div class="mb-15">
-                                    <label style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Timeline</label>
-                                    <select name="timeline" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; background:#fff;">
+                                    <label for="timeline" style="display:block; font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Timeline</label>
+                                    <select id="timeline" name="timeline" style="width:100%; padding:10px; border:2px solid #eee; border-radius:8px; font-size:14px; background:#fff;">
                                         <option value="">Select timeline...</option>
                                         <option value="asap">ASAP (Rush project)</option>
                                         <option value="1-month">Within 1 month</option>
