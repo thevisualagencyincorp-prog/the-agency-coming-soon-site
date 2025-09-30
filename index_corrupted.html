@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Agency | Welcome to Our Profile</title>
+<style>
+/* ===== 2008 MySpace Look, n                  <!-- Work Gallery & Instagram - Combined Layout -->
+        <div class="ms-card">
+          <div class="ms-head">🎨 Our Work & Social</div>
+          <div class="ms-content">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+              <!-- Work Gallery -->
+              <div>
+                <h4 style="margin:0 0 6px; font-size:11px; color:#336699;">Portfolio Highlights</h4>
+                <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:4px;">
+                  <div style="text-align:center;">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=50&h=50&fit=crop" alt="Logo Design" style="width:50px; height:50px; object-fit:cover; border:1px solid #ddd;">
+                    <div style="font-size:8px; margin-top:1px;">Brand</div>
+                  </div>
+                  <div style="text-align:center;">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=50&h=50&fit=crop" alt="Website" style="width:50px; height:50px; object-fit:cover; border:1px solid #ddd;">
+                    <div style="font-size:8px; margin-top:1px;">Web</div>
+                  </div>
+                  <div style="text-align:center;">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=50&h=50&fit=crop" alt="Video" style="width:50px; height:50px; object-fit:cover; border:1px solid #ddd;">
+                    <div style="font-size:8px; margin-top:1px;">Video</div>
+                  </div>
+                  <div style="text-align:center;">
+                    <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=50&h=50&fit=crop" alt="Photography" style="width:50px; height:50px; object-fit:cover; border:1px solid #ddd;">
+                    <div style="font-size:8px; margin-top:1px;">Photo</div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Instagram Feed -->
+              <div>
+                <h4 style="margin:0 0 6px; font-size:11px; color:#336699;">@thevisualagencyinc</h4>
+                <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:4px;">
+                  <div style="text-align:center;">
+                    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=50&h=50&fit=crop" alt="Post 1" style="width:50px; height:50px; object-fit:cover; border:1px solid #ddd;">
+                    <div style="font-size:8px; margin-top:1px;">Brand reveal</div>
+                  </div>
+                  <div style="text-align:center;">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=50&h=50&fit=crop" alt="Post 2" style="width:50px; height:50px; object-fit:cover; border:1px solid #ddd;">
+                    <div style="font-size:8px; margin-top:1px;">Launch</div>
+                  </div>
+                  <div style="text-align:center;">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=50&h=50&fit=crop" alt="Post 3" style="width:50px; height:50px; object-fit:cover; border:1px solid #ddd;">
+                    <div style="font-size:8px; margin-top:1px;">Logo</div>
+                  </div>
+                  <div style="text-align:center;">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=50&h=50&fit=crop" alt="Post 4" style="width:50px; height:50px; object-fit:cover; border:1px solid #ddd;">
+                    <div style="font-size:8px; margin-top:1px;">Video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p style="font-size:9px; margin:6px 0 0; color:#666; text-align:center;">✨ View full portfolio & follow us!</p>
+          </div>
+        </div>w responsive ===== */
+:root{
+  /* Desktop "classic" feel lives near 800px; grows a bit on larger screens */
+  --page: clamp(320px, 92vw, 960px);
+  --left: 200px;        /* sidebar base */
+  --gap: 20px;
+  --ink:#000; --bg:#fff;
+  --link:#336699; --visit:#663399;
+  --bar1:#6699cc; --bar2:#336699;
+  --mod:#f3f5f8; --edge:#9aa0b3; --head:#e6ebf3;
+  --radius: 0;          /* era = square edges */
+  --fs: 12px;           /* base font (scales slightly below) */
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font: var(--fs)/1.35 Verdana, Arial, sans-serif;
+  color:var(--ink);
+  background: linear-gradient(#c5d8ee,#9bb8db) fixed;
+}
+a{ color:var(--link); text-decoration:underline; }
+a:visited{ color:var(--visit); }
+a:hover{ text-decoration:none; }
+
+/* Shell */
+.ms-wrap{
+  width: var(--page);
+  margin:16px auto;
+  background:var(--bg);
+  border:1px solid #6b86a8;
+  box-shadow:0 8px 24px rgba(0,0,0,.15);
+}
+.ms-topbar{ background:linear-gradient(to bottom,var(--bar1),var(--bar2)); color:#fff; padding:8px 10px; font-weight:700; }
+.ms-note{ background:#ffffcc; border-bottom:1px solid #e0d690; color:#333; padding:6px 10px; font-weight:700; }
+
+/* Layout: desktop = two columns; small = stacked */
+.ms-body{
+  display:grid;
+  grid-template-columns: 250px 1fr;
+  gap: var(--gap);
+  padding:12px;
+  align-items: start;
+}
+
+/* Cards/modules */
+.ms-card{ background:var(--mod); border:1px solid var(--edge); margin-bottom:12px; border-radius: var(--radius); }
+.ms-head{ background:var(--head); border-bottom:1px solid var(--edge); padding:6px 8px; font-weight:700; }
+.ms-content{ padding:8px; }
+
+/* Right column optimizations */
+.ms-right .ms-card{ margin-bottom:10px; }
+.ms-right .ms-content{ padding:6px 8px; }
+
+/* Pixel frame */
+.pixel{ border:2px solid #fff; outline:1px solid #333; box-shadow:inset 0 0 0 1px #b5c3d7; display:block; width:100%; max-width:200px; height:auto; }
+
+/* Contact buttons grid */
+.contact-table{ display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+.contact-btn{
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--edge); background:#eaf0f7; padding:8px; font-weight:700;
+}
+
+/* Details table */
+.detail-table{ width:100%; border-collapse:collapse; }
+.detail-table th, .detail-table td{ border-bottom:1px solid var(--edge); padding:6px 4px; vertical-align:top; }
+.detail-table th{ width:34%; color:#333; text-align:left; }
+
+/* Friend Space grid */
+.friends-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; }
+.friend{ text-align:center; }
+.friend img{ width:85px; height:85px; object-fit:cover; border:1px solid var(--edge); background:#fff; display:block; margin:0 auto 6px; }
+
+/* Comments */
+.comment{ display:grid; grid-template-columns:70px 1fr; gap:10px; padding:8px 0; border-bottom:1px solid var(--edge); }
+.comment .avatar{ width:70px; height:70px; object-fit:cover; border:1px solid var(--edge); background:#fff; }
+.comment .meta{ font-size:11px; color:#444; margin-bottom:4px; }
+
+/* Footer */
+.ms-footer{ padding:10px; font-size:11px; color:#333; border-top:1px solid #6b86a8; background:#f2f6fb; }
+
+/* ===== Responsiveness ===== */
+
+/* Large desktops: allow a slightly wider right column while keeping vibe */
+@media (min-width: 1100px){
+  :root{ --page: 960px; }
+}
+
+/* Tablets: give left column a bit more room if space allows */
+@media (max-width: 980px){
+  .ms-body{
+    grid-template-columns: 220px 1fr;
+  }
+}
+
+/* Narrow tablets / big phones in landscape */
+@media (max-width: 840px){
+  :root{ --fs: 11.5px; }
+  .ms-body{
+    grid-template-columns: 180px 1fr;
+    gap: 16px;
+  }
+  .friends-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Phones: stack columns; make buttons full-width; simplify tables */
+@media (max-width: 640px){
+  :root{ --fs: 11.5px; }
+  .ms-wrap{ width: min(100%, 640px); margin: 0 auto; border-left:0; border-right:0; border-radius:0; }
+  .ms-topbar, .ms-note{ padding-left:12px; padding-right:12px; }
+  .ms-body{
+    grid-template-columns: 1fr;   /* stack */
+    gap: 12px;
+    padding: 10px;
+  }
+  .contact-table{ grid-template-columns: 1fr; } /* buttons full width */
+  .friends-grid{ grid-template-columns: repeat(2, 1fr); }
+  .friend img{ width:78px; height:78px; }
+  .comment{ grid-template-columns:56px 1fr; gap:8px; }
+  .comment .avatar{ width:56px; height:56px; }
+  .detail-table th{ width:42%; }  /* more room for values */
+}
+
+/* Small phones */
+@media (max-width: 380px){
+  :root{ --fs: 11px; }
+  .friends-grid{ grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+  <div class="ms-wrap">
+    <div class="ms-topbar">The Agency</div>
+    <div class="ms-note">In your extended network.</div>
+
+    <div class="ms-body">
+      <!-- LEFT COLUMN -->
+      <aside class="ms-left">
+        <!-- Profile -->
+        <div class="ms-card">
+          <div class="ms-head">The Agency</div>
+          <div class="ms-content">
+            <img class="pixel" src="images/Ash&Britt-TheAgency-ProfilePhoto-Lighter.png" alt="Ash & Britt - The Agency founders" />
+            <p style="margin:8px 0 0;"><strong>Tehachapi, CA</strong><br/>United States</p>
+            <p style="margin:4px 0 0; font-size:10px; color:#666;">Last Login: 09/18/2025</p>
+          </div>
+        </div>
+
+        <!-- Contact Table -->
+        <div class="ms-card">
+          <div class="ms-head">Contacting The Agency</div>
+          <div class="ms-content">
+            <div class="contact-table">
+              <a class="contact-btn" href="https://facebook.com/thevisualagencyinc" target="_blank">Add to Friends</a>
+              <a class="contact-btn" href="#briefForm" onclick="document.getElementById('briefForm').scrollIntoView({behavior: 'smooth'})">Send Message</a>
+              <a class="contact-btn" href="https://instagram.com/thevisualagencyinc" target="_blank">IM</a>
+              <a class="contact-btn" href="#">Add to Favorites</a>
+              <a class="contact-btn" href="#">Group</a>
+              <a class="contact-btn" href="#">Block User</a>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- URL box -->
+        <div class="ms-card">
+          <div class="ms-head">My URL:</div>
+          <div class="ms-content">
+            <code style="font-size:11px;">https://meettheagency.com/theagency</code>
+          </div>
+        </div>
+
+        <!-- Blurbs -->
+        <div class="ms-card">
+          <div class="ms-head">Blurbs</div>
+          <div class="ms-content">
+            <p><strong>About Us:</strong><br/>Full-service creative marketing for all businesses & nonprofits. We build brands that convert—strategy + design + content.</p>
+            <p><strong>Who We'd like to meet:</strong><br/>Local businesses, founders, and teams who want thoughtful design, measurable results, & the best creative partners.</p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN -->
+      <main class="ms-right">
+        <!-- Details & Interests - Compact Layout -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;">
+          <!-- Details -->
+          <div class="ms-card">
+            <div class="ms-head">The Agency's Details</div>
+            <div class="ms-content">
+              <table class="detail-table" role="table" style="font-size:10px;">
+                <tr><th>Status:</th><td>Open for projects</td></tr>
+                <tr><th>Here for:</th><td>Branding, Web Design, Apps, Photo/Video</td></tr>
+                <tr><th>Location:</th><td>Tehachapi • Bakersfield • LA</td></tr>
+                <tr><th>Who We Are:</th><td>Your creative besties</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <!-- Interests -->
+          <div class="ms-card">
+            <div class="ms-head">Interests</div>
+            <div class="ms-content">
+              <table class="detail-table" role="table" style="font-size:10px;">
+                <tr><th>General:</th><td>Creative design, branding, helping businesses grow</td></tr>
+                <tr><th>Music:</th><td>Taylor Swift, Tyler The Creator, Mac Miller</td></tr>
+                <tr><th>Movies:</th><td>A24, Tarantino, Grand Budapest Hotel</td></tr>
+                <tr><th>Books:</th><td>Design, business strategy, brand storytelling</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Brief Form -->
+        <div class="ms-card">
+          <div class="ms-head">� Our Work Gallery</div>
+          <div class="ms-content">
+            <div class="friends-grid">
+              <div class="friend"><img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=85&h=85&fit=crop" alt="Logo Design"><div>Brand Identity</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=85&h=85&fit=crop" alt="Website"><div>Web Design</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=85&h=85&fit=crop" alt="Video"><div>Video Content</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=85&h=85&fit=crop" alt="Photography"><div>Photography</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=85&h=85&fit=crop" alt="Social Media"><div>Social Media</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=85&h=85&fit=crop" alt="Print Design"><div>Print Design</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=85&h=85&fit=crop" alt="Packaging"><div>Packaging</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=85&h=85&fit=crop" alt="View More"><div>View Portfolio</div></div>
+            </div>
+            <p style="font-size:10px; margin:8px 0 0; color:#666; text-align:center;">✨ Click to see full portfolio! New work added weekly.</p>
+          </div>
+        </div>
+
+        <!-- Instagram Feed -->
+        <div class="ms-card">
+          <div class="ms-head">📱 Latest from Our Instagram</div>
+          <div class="ms-content">
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(80px, 1fr)); gap:8px;">
+              <div style="text-align:center;">
+                <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=80&h=80&fit=crop" alt="Post 1" style="width:80px; height:80px; object-fit:cover; border:1px solid #ddd;">
+                <div style="font-size:9px; margin-top:2px;">Brand reveal 🎨</div>
+              </div>
+              <div style="text-align:center;">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=80&h=80&fit=crop" alt="Post 2" style="width:80px; height:80px; object-fit:cover; border:1px solid #ddd;">
+                <div style="font-size:9px; margin-top:2px;">Website launch 🚀</div>
+              </div>
+              <div style="text-align:center;">
+                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=80&h=80&fit=crop" alt="Post 3" style="width:80px; height:80px; object-fit:cover; border:1px solid #ddd;">
+                <div style="font-size:9px; margin-top:2px;">Logo design ✨</div>
+              </div>
+              <div style="text-align:center;">
+                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=80&h=80&fit=crop" alt="Post 4" style="width:80px; height:80px; object-fit:cover; border:1px solid #ddd;">
+                <div style="font-size:9px; margin-top:2px;">Video content 📹</div>
+              </div>
+              <div style="text-align:center;">
+                <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=80&h=80&fit=crop" alt="Post 5" style="width:80px; height:80px; object-fit:cover; border:1px solid #ddd;">
+                <div style="font-size:9px; margin-top:2px;">Photoshoot 📸</div>
+              </div>
+            </div>
+            <p style="font-size:10px; margin:8px 0 0; color:#666; text-align:center;">💕 Follow @thevisualagencyinc for daily inspo!</p>
+          </div>
+        </div>
+
+        <!-- Friend Space (Top 8) -->
+        <div class="ms-card">
+          <div class="ms-head">👯‍♀️ The Agency's Friend Space (Top 8)</div>
+          <div class="ms-content">
+            <div class="friends-grid">
+              <div class="friend"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=85&h=85&fit=crop&crop=face" alt=""><div>Creative_Mike</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=85&h=85&fit=crop&crop=face" alt=""><div>Designer_Sarah</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=85&h=85&fit=crop&crop=face" alt=""><div>Dev_Alex</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=85&h=85&fit=crop&crop=face" alt=""><div>Brand_Emma</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=85&h=85&fit=crop&crop=face" alt=""><div>Photo_James</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=85&h=85&fit=crop&crop=face" alt=""><div>Social_Maya</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=85&h=85&fit=crop&crop=face" alt=""><div>Video_Chris</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=85&h=85&fit=crop&crop=face" alt=""><div>Strategy_Luna</div></div>
+            </div>
+            <p style="font-size:10px; margin:8px 0 0; color:#666; text-align:center;">� Want to be friends? Add us!</p>
+          </div>
+        </div>
+
+        <!-- Music strip -->
+        <div class="ms-card">
+          <div class="ms-head">🎵 Currently Vibing To</div>
+          <div class="ms-content">
+            <div style="display:flex; align-items:center; gap:10px; background:#101826; color:#eaf2ff; border:1px solid #2b3a55; padding:8px;">
+              <img src="https://via.placeholder.com/60/FF69B4/FFFFFF?text=♪" alt="Album cover" style="width:60px; height:60px; object-fit:cover; border:1px solid #334665;">
+              <div style="min-width:0;">
+                <div style="font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">🎤 Now Playing: "Anti-Hero" — Taylor Swift</div>
+                <div style="font-size:11px; opacity:.9; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Work Playlist: Tyler, The Creator • Doja Cat • Mac Miller • Billie Eilish • The Weeknd</div>
+                <div style="font-size:10px; opacity:.7; margin-top:2px;">🔊 Volume: ████████░░ 80% | ⏰ 2:34 / 3:22</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Work Gallery -->
+        <div class="ms-card">
+          <div class="ms-head">📸 Our Work Gallery</div>
+          <div class="ms-content">
+            <div class="friends-grid">
+              <div class="friend"><img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=85&h=85&fit=crop" alt="Logo Design"><div>Brand Identity</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=85&h=85&fit=crop" alt="Website"><div>Web Design</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=85&h=85&fit=crop" alt="Video"><div>Video Content</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=85&h=85&fit=crop" alt="Photography"><div>Photography</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=85&h=85&fit=crop" alt="Social Media"><div>Social Media</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=85&h=85&fit=crop" alt="Print Design"><div>Print Design</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=85&h=85&fit=crop" alt="Packaging"><div>Packaging</div></div>
+              <div class="friend"><img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=85&h=85&fit=crop" alt="View More"><div>View Portfolio</div></div>
+            </div>
+            <p style="font-size:10px; margin:8px 0 0; color:#666; text-align:center;">✨ Click to see full portfolio! New work added weekly.</p>
+          </div>
+        </div>
+
+        <!-- Comments -->
+        <div class="ms-card">
+          <div class="ms-head">💬 Wall Comments (Reviews)</div>
+          <div class="ms-content">
+            <div class="comment">
+              <img class="avatar" src="https://via.placeholder.com/70/FF6B9D/FFFFFF?text=TC" alt="">
+              <div>
+                <div class="meta"><strong>TechCrush_Startup</strong> — Sep 18, 2025 11:42 AM</div>
+                <div>"These girls are MAGIC! ✨ Went from zero brand to 50K followers in 3 months. ROI was insane! The creative team that actually gets Gen Z marketing. 10/10 would book again!"</div>
+              </div>
+            </div>
+            <div class="comment">
+              <img class="avatar" src="https://via.placeholder.com/70/4ECDC4/FFFFFF?text=BB" alt="">
+              <div>
+                <div class="meta"><strong>BrewBeans_Coffee</strong> — Sep 17, 2025 3:22 PM</div>
+                <div>"Y'all turned our small coffee shop into THE spot in town! The rebrand was chef's kiss 👌 Sales up 200% since launch. Ash & Britt are the real deal - creative geniuses who deliver RESULTS."</div>
+              </div>
+            </div>
+            <div class="comment">
+              <img class="avatar" src="https://via.placeholder.com/70/45B7D1/FFFFFF?text=ZF" alt="">
+              <div>
+                <div class="meta"><strong>ZenFlow_Yoga</strong> — Sep 16, 2025 7:18 PM</div>
+                <div>"Best investment we made! 💰 The Agency didn't just give us a logo - they gave us an entire VIBE. Our studio bookings tripled and the Instagram is poppin! They're like having two marketing besties who actually know what they're doing."</div>
+              </div>
+            </div>
+            <div class="comment">
+              <img class="avatar" src="https://via.placeholder.com/70/F9CA24/FFFFFF?text=MK" alt="">
+              <div>
+                <div class="meta"><strong>Mamas_Kitchen_LA</strong> — Sep 15, 2025 5:45 PM</div>
+                <div>"From food truck to brick & mortar thanks to these queens! 👑 The rebrand made us look like we've been established for years. Customer acquisition up 300%! Worth every penny and more."</div>
+              </div>
+            </div>
+            <div class="comment">
+              <img class="avatar" src="https://via.placeholder.com/70/6C5CE7/FFFFFF?text=LE" alt="">
+              <div>
+                <div class="meta"><strong>Legal_Eagles_Firm</strong> — Sep 14, 2025 2:11 PM</div>
+                <div>"Professional, creative, and FAST! 🚀 They made law look cool (didn't know that was possible lol). New client inquiries up 150% since the website launch. The Agency gets it - they just GET IT."</div>
+              </div>
+            </div>
+            <p style="font-size:10px; margin:8px 0 0; color:#666; text-align:center;">⭐ Want to leave a review? DM us after your project!</p>
+          </div>
+        </div>
+
+        <!-- Pricing Packages -->
+        <div class="ms-card">
+          <div class="ms-head">💰 Starting Packages</div>
+          <div class="ms-content">
+            <table class="detail-table" role="table">
+              <tr><th>Brand Starter:</th><td>$2,500 - Logo + Brand Guide</td></tr>
+              <tr><th>Web Essential:</th><td>$5,000+ - Full Website Build</td></tr>
+              <tr><th>Marketing Kit:</th><td>$1,800 - Social + Content</td></tr>
+              <tr><th>Full Agency:</th><td>$10,000+ - Everything Package</td></tr>
+            </table>
+            <p style="font-size:10px; margin:8px 0 0; color:#666;">💼 Monthly memberships available for in-house art department without the overhead!</p>
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="ms-card">
+          <div class="ms-head">🤔 Top 5 FAQs</div>
+          <div class="ms-content">
+            <div style="margin-bottom:12px;">
+              <strong style="color:#336699;">Q: How long does a typical project take?</strong><br/>
+              <span style="font-size:11px;">A: Most projects wrap up in 2-4 weeks! We're pretty speedy once we get rolling. Rush jobs? We got you - just ask! ⚡</span>
+            </div>
+            
+            <div style="margin-bottom:12px;">
+              <strong style="color:#336699;">Q: Do you work with small businesses?</strong><br/>
+              <span style="font-size:11px;">A: YES! Actually, that's our sweet spot! We love helping small biz owners build something amazing. No project too small! 💕</span>
+            </div>
+            
+            <div style="margin-bottom:12px;">
+              <strong style="color:#336699;">Q: Can you help if I already have a logo/website?</strong><br/>
+              <span style="font-size:11px;">A: Absolutely! We can work with what you have or give it a fresh glow-up. We're here to make it BETTER, not start over! ✨</span>
+            </div>
+            
+            <div style="margin-bottom:12px;">
+              <strong style="color:#336699;">Q: What makes you different from other agencies?</strong><br/>
+              <span style="font-size:11px;">A: We're your creative besties who actually answer DMs! 😂 Plus we focus on results, not just pretty designs. ROI > ego! 📈</span>
+            </div>
+            
+            <div style="margin-bottom:8px;">
+              <strong style="color:#336699;">Q: Do you offer payment plans?</strong><br/>
+              <span style="font-size:11px;">A: Of course! We know cash flow is real. We can work out something that doesn't break the bank. Just be honest with us! 💙</span>
+            </div>
+            
+            <p style="font-size:10px; margin:8px 0 0; color:#666; text-align:center;">💭 Got more questions? Slide into our DMs!</p>
+          </div>
+        </div>
+
+        <!-- Custom Brief Form -->
+        <div class="ms-card">
+          <div class="ms-head">💬 Get Your Custom Brief</div>
+          <div class="ms-content">
+            <form id="briefForm" style="font-size:11px;">
+              <!-- Basic Contact Info -->
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+                <div>
+                  <strong>First Name:</strong><br/>
+                  <input type="text" name="firstName" style="width:100%; padding:4px; margin-top:2px;" placeholder="Jane" required>
+                </div>
+                <div>
+                  <strong>Last Name:</strong><br/>
+                  <input type="text" name="lastName" style="width:100%; padding:4px; margin-top:2px;" placeholder="Doe" required>
+                </div>
+              </div>
+
+              <div style="margin-bottom:10px;">
+                <strong>Business Name:</strong><br/>
+                <input type="text" name="businessName" style="width:100%; padding:4px; margin-top:2px;" placeholder="Amazing Co." required>
+              </div>
+
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+                <div>
+                  <strong>Email:</strong><br/>
+                  <input type="email" name="email" style="width:100%; padding:4px; margin-top:2px;" placeholder="hello@yourbusiness.com" required>
+                </div>
+                <div>
+                  <strong>Phone (for text updates):</strong><br/>
+                  <input type="tel" name="phone" style="width:100%; padding:4px; margin-top:2px;" placeholder="(555) 123-4567">
+                </div>
+              </div>
+
+              <!-- Business Info -->
+              <div style="margin-bottom:10px;">
+                <strong>Current Website:</strong><br/>
+                <input type="url" name="website" style="width:100%; padding:4px; margin-top:2px;" placeholder="https://yourbusiness.com">
+              </div>
+
+              <div style="margin-bottom:10px;">
+                <strong>Social Media Links:</strong><br/>
+                <input type="url" name="instagram" style="width:100%; padding:4px; margin-top:2px; margin-bottom:4px;" placeholder="Instagram URL">
+                <input type="url" name="facebook" style="width:100%; padding:4px; margin-bottom:4px;" placeholder="Facebook URL">
+                <input type="url" name="tiktok" style="width:100%; padding:4px;" placeholder="TikTok URL (optional)">
+              </div>
+
+              <div style="margin-bottom:10px;">
+                <strong>Industry:</strong><br/>
+                <select name="industry" style="width:100%; padding:4px; margin-top:2px;" required>
+                  <option value="">Choose one...</option>
+                  <option value="restaurant">Restaurant/Food</option>
+                  <option value="retail">Retail/E-commerce</option>
+                  <option value="healthcare">Healthcare/Wellness</option>
+                  <option value="tech">Tech/Software</option>
+                  <option value="professional">Professional Services</option>
+                  <option value="beauty">Beauty/Lifestyle</option>
+                  <option value="nonprofit">Nonprofit</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div style="margin-bottom:10px;">
+                <strong>Main Goal:</strong><br/>
+                <select name="goal" style="width:100%; padding:4px; margin-top:2px;" required>
+                  <option value="">Pick your vibe...</option>
+                  <option value="rebrand">Complete rebrand/new logo</option>
+                  <option value="website">New website that converts</option>
+                  <option value="social">Social media that pops</option>
+                  <option value="marketing">Full marketing strategy</option>
+                  <option value="growth">Scale my business</option>
+                </select>
+              </div>
+
+              <div style="margin-bottom:10px;">
+                <strong>Budget Range:</strong><br/>
+                <select name="budget" style="width:100%; padding:4px; margin-top:2px;" required>
+                  <option value="">Be honest...</option>
+                  <option value="1500-3000">$1,500 - $3,000</option>
+                  <option value="3000-5000">$3,000 - $5,000</option>
+                  <option value="5000-10000">$5,000 - $10,000</option>
+                  <option value="10000+">$10,000+</option>
+                  <option value="unsure">Not sure yet</option>
+                </select>
+              </div>
+
+              <!-- Creative Preferences -->
+              <div style="margin-bottom:10px;">
+                <strong>Color Palette Preferences:</strong><br/>
+                <input type="text" name="colorPalette" style="width:100%; padding:4px; margin-top:2px;" placeholder="Neutral & earthy, Bold & bright, Minimalist black/white, etc.">
+              </div>
+
+              <div style="margin-bottom:10px;">
+                <strong>Dream Aesthetic (3 words):</strong><br/>
+                <input type="text" name="aesthetic" style="width:100%; padding:4px; margin-top:2px;" placeholder="Modern, Bold, Playful" required>
+              </div>
+
+              <div style="margin-bottom:10px;">
+                <strong>Pinterest Board Link:</strong><br/>
+                <input type="url" name="pinterest" style="width:100%; padding:4px; margin-top:2px;" placeholder="https://pinterest.com/yourboard">
+                <small style="color:#666; font-size:10px;">Share your inspiration board so we can read your mind! ✨</small>
+              </div>
+
+              <!-- Business Personality -->
+              <div style="margin-bottom:10px;">
+                <strong>Describe your business as if it were your best friend:</strong><br/>
+                <textarea name="businessPersonality" style="width:100%; padding:4px; margin-top:2px; height:60px; resize:vertical;" placeholder="My business is like that friend who..."></textarea>
+                <small style="color:#666; font-size:10px;">This helps us capture your brand personality perfectly!</small>
+              </div>
+
+              <div style="margin-bottom:10px;">
+                <strong>Who are your main competitors?</strong><br/>
+                <input type="text" name="competitors" style="width:100%; padding:4px; margin-top:2px;" placeholder="Company A, Company B, etc.">
+                <small style="color:#666; font-size:10px;">Helps us make you stand out from the crowd!</small>
+              </div>
+
+              <button type="submit" style="width:100%; padding:12px; background:#336699; color:white; border:none; font-weight:bold; cursor:pointer; margin-top:10px; font-size:12px;">
+                ✨ Create My Custom Brief ✨
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+    <div class="ms-footer">
+      © The Agency • <a href="mailto:hello@meettheagency.com">hello@meettheagency.com</a> • Tehachapi • Bakersfield • Los Angeles
+    </div>
+  </div>
+
+  <!-- Confirmation Popup -->
+  <div id="confirmationPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000;">
+    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; padding:30px; border-radius:8px; text-align:center; max-width:400px; margin:20px; border:2px solid #336699; box-shadow:0 8px 24px rgba(0,0,0,0.3);">
+      <div style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:20px; color:#666;" onclick="closePopup()">×</div>
+      <h2 style="color:#336699; margin:0 0 15px 0; font-size:18px;">🎉 You're officially on our books!</h2>
+      <p style="margin:0 0 15px 0; font-size:14px; line-height:1.4;">More information will be sent within one business day. Chat soon!</p>
+      <div style="font-size:24px; margin:10px 0;">✨💕✨</div>
+      <button onclick="closePopup()" style="background:#336699; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer; margin-top:10px; font-weight:bold;">Close</button>
+    </div>
+  </div>
+
+  <script>
+    function closePopup() {
+      const popup = document.getElementById('confirmationPopup');
+      popup.style.display = 'none';
+      // Reset form
+      document.getElementById('briefForm').reset();
+    }
+
+    document.getElementById('briefForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Show confirmation popup
+      const popup = document.getElementById('confirmationPopup');
+      popup.style.display = 'block';
+      
+      // Auto-hide popup after 5 seconds (giving user time to read)
+      setTimeout(function() {
+        closePopup();
+      }, 5000);
+      
+      // You can add actual form submission logic here
+      // For now, just logging the form data
+      const formData = new FormData(e.target);
+      console.log('Form submitted:', Object.fromEntries(formData));
+    });
+
+    // Close popup when clicking outside of it
+    document.getElementById('confirmationPopup').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closePopup();
+      }
+    });
+  </script>
+</body>
+</html>
